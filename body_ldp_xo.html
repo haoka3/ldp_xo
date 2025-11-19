@@ -921,19 +921,28 @@
 
 
 
-    <script>
-// Chờ trang load xong
-document.addEventListener("DOMContentLoaded", function() {
-    // Lấy nút và phần tử mục tiêu
-    const button = document.getElementById("BUTTON201");
-    const target = document.getElementById("HEADLINE204");
+<script>
+// Hàm chờ phần tử xuất hiện
+function waitForElement(selector, callback) {
+    const interval = setInterval(() => {
+        const el = document.querySelector(selector);
+        if (el) {
+            clearInterval(interval);
+            callback(el);
+        }
+    }, 100); // kiểm tra mỗi 100ms
+}
 
-    // Gắn sự kiện click
-    button.addEventListener("click", function() {
+// Chờ nút BUTTON201 xuất hiện
+waitForElement("#BUTTON201", function(button) {
+    button.addEventListener("click", function(e) {
+        e.preventDefault(); // tránh bất kỳ hành vi mặc định nào
+        const target = document.getElementById("HEADLINE204");
         if (target) {
-            // Cuộn mượt đến phần tử
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     });
 });
 </script>
+
+
