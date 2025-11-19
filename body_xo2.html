@@ -871,3 +871,58 @@
 
 
 
+
+
+<!-- Nút bong bóng -->
+<style>
+  .floating-bubble {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    animation: pulse 2s infinite;
+    transition: transform 0.25s ease;
+  }
+
+  .floating-bubble:hover {
+    transform: translateY(-50%) scale(1.12);
+  }
+
+  /* Hiệu ứng nhún nhẹ */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 rgba(231,76,60, 0.6); }
+    50% { box-shadow: 0 0 18px rgba(231,76,60, 0.5); }
+    100% { box-shadow: 0 0 0 rgba(231,76,60, 0.6); }
+  }
+
+  /* Tối ưu cho điện thoại */
+  @media (max-width: 768px) {
+    .floating-bubble {
+      width: 58px;
+      height: 58px;
+      font-size: 12px;
+      right: 14px;
+    }
+  }
+</style>
+
+<div class="floating-bubble" onclick="window.location.href='https://xovietnam.vn/si-phu-kien/form.html'">
+  Đăng ký
+</div>
+
+
+
