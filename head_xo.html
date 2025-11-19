@@ -4721,14 +4721,32 @@
 }
 
 /* CSS cho mobile */
+/* Chỉ áp dụng trên mobile */
 @media (max-width: 768px) {
+
+    /* 1. Tạo hộp đen che chữ gốc */
     .ladi-headline {
-        text-align: center !important;   /* căn giữa chữ */
-        display: block !important;       /* đảm bảo block chiếm toàn bộ width */
-        width: 100% !important;          /* chiếm toàn bộ chiều rộng */
-        box-sizing: border-box !important; /* tránh padding làm tràn */
+        background-color: #000 !important; /* nền đen */
+        color: transparent !important;     /* ẩn chữ cũ */
+        width: 100% !important;           /* full chiều ngang */
+        display: block !important;
+        box-sizing: border-box !important;
+        padding: 10px 0;                  /* thêm padding nếu muốn */
+    }
+
+    /* 2. Hiển thị chữ mới căn giữa, gradient đỏ-vàng */
+    .ladi-headline::after {
+        content: "Mua Sỉ Phụ Kiện Tại XO Việt Nam – Giá Tốt, Chất Lượng Chuẩn Hãng";
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px; /* tùy chỉnh */
+        background: linear-gradient(to right, red, yellow);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
+
 
 
      
