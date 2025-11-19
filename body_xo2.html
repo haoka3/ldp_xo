@@ -928,6 +928,8 @@
 
 <!-- HTML -->
 
+<!-- HTML -->
+
 <div class="floating-buttons">
   <!-- Nút gọi điện -->
   <a href="tel:0932114128" class="floating-btn call-btn">
@@ -935,7 +937,7 @@
   </a>
   <!-- Nút Zalo -->
   <a href="https://zalo.me/0932114128" target="_blank" class="floating-btn zalo-btn">
-    <div class="zalo-icon"></div>
+    Zalo
   </a>
 </div>
 
@@ -950,7 +952,7 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 15px; /* khoảng cách giữa các nút */
+  gap: 15px;
   z-index: 9999;
 }
 
@@ -963,6 +965,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  font-weight: bold;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   transition: transform 0.2s;
 }
@@ -980,21 +983,14 @@
 
 /* Nút Zalo */
 .zalo-btn {
-  background-color: white; 
-  padding: 10px;
-}
-
-/* Icon Zalo */
-/* Icon Zalo mới */
-.zalo-icon {
-  width: 100%;
-  height: 100%;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/768px-Icon_of_Zalo.svg.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
+  background-color: white;
+  color: #0068ff; /* xanh dương chữ Zalo */
+  font-size: 16px;
+  text-align: center;
 }
 </style>
+
+
 
 
 
