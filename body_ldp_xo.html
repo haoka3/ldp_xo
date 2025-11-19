@@ -921,8 +921,16 @@
 
 
 
+
+<div id="BUTTON201" class="ladi-element ladi-animation floating-button">
+    <div class="ladi-button ladi-transition">
+        <div class="ladi-button-background"></div>
+        <div id="BUTTON_TEXT201" class="ladi-element ladi-button-headline">
+            <p class="ladi-headline ladi-transition">XEM SẢN PHẨM HOT</p>
+        </div>
+    </div>
+</div>
 <script>
-// Hàm chờ phần tử xuất hiện
 function waitForElement(selector, callback) {
     const interval = setInterval(() => {
         const el = document.querySelector(selector);
@@ -930,19 +938,22 @@ function waitForElement(selector, callback) {
             clearInterval(interval);
             callback(el);
         }
-    }, 100); // kiểm tra mỗi 100ms
+    }, 100);
 }
 
-// Chờ nút BUTTON201 xuất hiện
 waitForElement("#BUTTON201", function(button) {
     button.addEventListener("click", function(e) {
-        e.preventDefault(); // tránh bất kỳ hành vi mặc định nào
-        const target = document.getElementById("HEADLINE204");
+        e.preventDefault();
+        const target = document.getElementById("SANPHAM");
         if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            const yOffset = -20; 
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
     });
 });
 </script>
+
+
 
 
