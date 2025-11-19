@@ -956,21 +956,23 @@
 </style>
 
 <script>
-// ID form Google Forms hoặc section bạn muốn cuộn tới
-const formSection = document.querySelector('.RH5hzf'); // Thay bằng selector thực tế của form
+// Selector chính xác của form
+const formSection = document.querySelector('.RH5hzf.RLS9Fe');
 
 document.getElementById('floatingFormButton').addEventListener('click', function(){
     if(formSection){
-        // Cuộn mượt tới form
-        const yOffset = -20; // nếu muốn tránh header cố định
+        // Cuộn tới gần form (ví dụ cách top 50px để thấy form đầy đủ)
+        const yOffset = -50;
         const y = formSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
     } else {
-        // Mở form Google trực tiếp nếu chưa load
+        // Nếu form chưa load, mở trực tiếp link Google Form
         window.open('https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/viewform', '_blank');
     }
 });
 </script>
+
+
 
 
 
