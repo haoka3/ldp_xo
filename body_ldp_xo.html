@@ -582,21 +582,45 @@ document.getElementById('floatingFormButton').addEventListener('click', function
                     <div class="ladi-box ladi-transition"></div>
                 </div>
 
- <div id="VIDEO273" class="ladi-element">
-                    <div class="ladi-video">
-                          <!-- Nhúng YouTube Shorts -->
-                        <iframe 
-                            width="1200" 
-                            height="1200" 
-                            src="https://www.youtube.com/embed/p4N4if1EQ6c" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+<div id="VIDEO273" class="ladi-element">
+    <div class="ladi-video">
+        <!-- Khung vuông chứa Shorts -->
+        <div class="square-frame">
+            <iframe 
+                src="https://www.youtube.com/embed/p4N4if1EQ6c" 
+                title="YouTube Shorts" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
 
-                    </div>
-                </div>
+<style>
+.square-frame {
+    width: 300px;           /* khung vuông */
+    height: 300px;
+    background: #000;       /* nền đen phần dư ngang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;    /* tuỳ chọn */
+    position: relative;
+}
+
+/* Giữ video trong khung vuông, toàn bộ video hiển thị */
+.square-frame iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;           /* video co theo chiều cao khung */
+}
+</style>
+
 
 
 
@@ -973,6 +997,7 @@ document.getElementById('floatingFormButton').addEventListener('click', function
         type="text/javascript">(function () { var run = function () { if (typeof window.LadiPageScript == "undefined" || typeof window.ladi == "undefined" || window.ladi == undefined) { setTimeout(run, 100); return; } window.LadiPageApp = window.LadiPageApp || new window.LadiPageAppV2(); window.LadiPageScript.runtime.ladipage_id = '691bed597036ea001334f1d0'; window.LadiPageScript.runtime.publish_platform = 'LADIPAGE'; window.LadiPageScript.runtime.version = '1763455172680'; window.LadiPageScript.runtime.cdn_url = 'https://w.ladicdn.com/v5/source/'; window.LadiPageScript.runtime.DOMAIN_FREE = ["preview.ldpdemo.com", "ldp.page"]; window.LadiPageScript.runtime.bodyFontSize = 12; window.LadiPageScript.runtime.store_id = "69070e9985ab8000134d7e57"; window.LadiPageScript.runtime.store_ladiuid = "69070e96772bdb0011968f03"; window.LadiPageScript.runtime.time_zone = 7; window.LadiPageScript.runtime.currency = "VND"; window.LadiPageScript.runtime.convert_replace_str = true; window.LadiPageScript.runtime.desktop_width = 960; window.LadiPageScript.runtime.mobile_width = 420; window.LadiPageScript.runtime.formdata = true; window.LadiPageScript.runtime.tracking_button_click = true; window.LadiPageScript.runtime.publish_time = 1763514983688; window.LadiPageScript.runtime.lang = "vi"; window.LadiPageScript.run(true); window.LadiPageScript.runEventScroll(); }; run(); })();</script>
 
     <script type="text/javascript" defer="" src="./Đặt tiêu đề trang_files/ladipage.formdata.min.js.tải xuống"></script>
+
 
 
 
