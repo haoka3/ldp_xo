@@ -4701,51 +4701,34 @@
 
 
 
-
-#SECTION275 {
-    width: 100% !important;
-    overflow-x: auto !important;
-    transform-origin: top left !important;
-}
-
+/* Chỉ áp dụng trên điện thoại */
 @media (max-width: 768px) {
-    #SECTION275 {
-        transform: scale(0.6) !important;
-    }
-}
-
-@media (max-width: 480px) {
-    #SECTION275 {
-        transform: scale(0.45) !important;
-    }
-}
-
-/* CSS cho mobile */
-/* Chỉ áp dụng trên mobile */
-@media (max-width: 768px) {
-
-    /* 1. Tạo hộp đen che chữ gốc */
+    /* Ẩn h3 */
     .ladi-headline {
-        background-color: #000 !important; /* nền đen */
-        color: transparent !important;     /* ẩn chữ cũ */
-        width: 100% !important;           /* full chiều ngang */
-        display: block !important;
-        box-sizing: border-box !important;
-        padding: 10px 0;                  /* thêm padding nếu muốn */
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        pointer-events: none !important;
     }
 
-    /* 2. Hiển thị chữ mới căn giữa, gradient đỏ-vàng */
-    .ladi-headline::after {
-        content: "Mua Sỉ Phụ Kiện Tại XO Việt Nam – Giá Tốt, Chất Lượng Chuẩn Hãng";
-        display: block;
-        text-align: center;
-        font-weight: bold;
-        font-size: 16px; /* tùy chỉnh */
-        background: linear-gradient(to right, red, yellow);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    /* Ẩn div đoạn văn */
+    .ladi-paragraph {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        pointer-events: none !important;
     }
 }
+
+
 
 
 
