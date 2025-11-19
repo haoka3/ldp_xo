@@ -4702,27 +4702,24 @@
 
 
 
-/* 1. Section mặc định */
 #SECTION275 {
-    width: 100%;
-    overflow-x: auto; /* nếu quá nhỏ vẫn cuộn ngang được */
-    transform-origin: top left; /* gốc scale từ trên bên trái */
+    width: 100% !important;
+    overflow-x: auto !important;
+    transform-origin: top left !important;
 }
 
-/* 2. Scale tự động trên mobile */
 @media (max-width: 768px) {
-    /* Tính tỷ lệ co nhỏ */
     #SECTION275 {
-        transform: scale(0.6); /* giảm 60% */
+        transform: scale(0.6) !important;
     }
 }
 
-/* 3. Scale nhỏ hơn nữa trên điện thoại nhỏ */
 @media (max-width: 480px) {
     #SECTION275 {
-        transform: scale(0.45); /* giảm 45% */
+        transform: scale(0.45) !important;
     }
 }
+
 
 
      
