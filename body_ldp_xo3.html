@@ -2082,67 +2082,82 @@
 
 
 <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
-<!-- Placeholder cho cả 2 loại hiển thị -->
-<!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
-<a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="floating-bubble-small">
-  <span class="bubble-icon">📱</span>
-  <span class="bubble-text">
-    Chuyển đến chế độ xem<br>trên điện thoại
-  </span>
-</a>
-
+ <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
+    <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="floating-bubble-small">
+        <span class="bubble-icon">📱</span>
+        <span class="bubble-text">
+            Chuyển đến chế độ xem<br>trên điện thoại
+        </span>
+    </a>
 <style>
-/* Bong bóng nổi bên phải giữa màn hình - nhỏ hơn, 2 hàng */
-.floating-bubble-small {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  background: #ff4757;
-  color: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
-  z-index: 9999;
-  animation: blink 1.5s infinite;
-  transition: all 0.3s ease;
-}
+        /* Bong bóng nổi bên phải giữa màn hình - hình chữ nhật 4:3 */
+        .floating-bubble-small {
+            position: fixed;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            background: #ff4757;
+            color: #fff;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            animation: blink 1.5s infinite;
+            transition: all 0.3s ease;
+            width: 80px; /* Chiều rộng cố định */
+            height: 60px; /* Chiều cao cố định để đạt tỷ lệ 4:3 */
+            justify-content: center;
+            box-sizing: border-box;
+        }
 
-/* Icon phía trên */
-.floating-bubble-small .bubble-icon {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
+        /* Icon phía trên */
+        .floating-bubble-small .bubble-icon {
+            font-size: 16px;
+            margin-bottom: 2px;
+            line-height: 1;
+        }
 
-/* Hover hiệu ứng */
-.floating-bubble-small:hover {
-  transform: translateY(-50%) scale(1.1);
-  background: #ff6b81;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
+        /* Text phía dưới */
+        .floating-bubble-small .bubble-text {
+            line-height: 1.2;
+        }
 
-/* Hiệu ứng nhấp nháy */
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0.6; }
-}
+        /* Hover hiệu ứng */
+        .floating-bubble-small:hover {
+            transform: translateY(-50%) scale(1.1);
+            background: #ff6b81;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .floating-bubble-small {
-    font-size: 12px;
-    padding: 8px 10px;
-    right: 8px;
-  }
-}
-</style>
+        /* Hiệu ứng nhấp nháy */
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.6; }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .floating-bubble-small {
+                font-size: 10px;
+                padding: 6px 8px;
+                right: 8px;
+                width: 70px;
+                height: 52.5px;
+            }
+            
+            .floating-bubble-small .bubble-icon {
+                font-size: 14px;
+            }
+        }
+    </style>
+
 
 
 
