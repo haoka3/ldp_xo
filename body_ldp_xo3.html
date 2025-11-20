@@ -2083,80 +2083,111 @@
 
 <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
  <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
-    <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="floating-bubble-small">
+   <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
+<div class="floating-bubble-small" id="floatingBubble">
+    <span class="close-btn" id="closeBubble">&times;</span>
+    <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="bubble-link">
         <span class="bubble-icon">📱</span>
         <span class="bubble-text">
             Chuyển đến chế độ xem<br>trên điện thoại
         </span>
     </a>
+</div>
+
 <style>
-        /* Bong bóng nổi bên phải giữa màn hình - hình chữ nhật 4:3 */
+    /* Bong bóng nổi bên phải giữa màn hình - hình chữ nhật 4:3 */
+    .floating-bubble-small {
+        position: fixed;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        background: #ff4757;
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+        z-index: 9999;
+        animation: blink 1.5s infinite;
+        transition: all 0.3s ease;
+        width: 80px;
+        height: 60px;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /* Nút đóng */
+    .close-btn {
+        position: absolute;
+        top: 2px;
+        right: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        color: #fff;
+        z-index: 10000;
+        font-weight: bold;
+    }
+
+    /* Icon phía trên */
+    .floating-bubble-small .bubble-icon {
+        font-size: 16px;
+        margin-bottom: 2px;
+        line-height: 1;
+    }
+
+    /* Text phía dưới */
+    .floating-bubble-small .bubble-text {
+        line-height: 1.2;
+    }
+
+    /* Hover hiệu ứng */
+    .floating-bubble-small:hover {
+        transform: translateY(-50%) scale(1.1);
+        background: #ff6b81;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Hiệu ứng nhấp nháy */
+    @keyframes blink {
+        0%, 50%, 100% { opacity: 1; }
+        25%, 75% { opacity: 0.6; }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
         .floating-bubble-small {
-            position: fixed;
+            right: 50%;
             top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            background: #ff4757;
-            color: #fff;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 12px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
-            z-index: 9999;
-            animation: blink 1.5s infinite;
-            transition: all 0.3s ease;
-            width: 80px; /* Chiều rộng cố định */
-            height: 60px; /* Chiều cao cố định để đạt tỷ lệ 4:3 */
-            justify-content: center;
-            box-sizing: border-box;
+            transform: translate(50%, -50%);
+            font-size: 10px;
+            padding: 6px 8px;
+            width: 70px;
+            height: 52.5px;
         }
 
-        /* Icon phía trên */
         .floating-bubble-small .bubble-icon {
-            font-size: 16px;
-            margin-bottom: 2px;
-            line-height: 1;
+            font-size: 14px;
         }
 
-        /* Text phía dưới */
-        .floating-bubble-small .bubble-text {
-            line-height: 1.2;
+        .close-btn {
+            font-size: 10px;
+            top: 1px;
+            right: 2px;
         }
+    }
+</style>
 
-        /* Hover hiệu ứng */
-        .floating-bubble-small:hover {
-            transform: translateY(-50%) scale(1.1);
-            background: #ff6b81;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
+<script>
+    document.getElementById('closeBubble').addEventListener('click', function() {
+        document.getElementById('floatingBubble').style.display = 'none';
+    });
+</script>
 
-        /* Hiệu ứng nhấp nháy */
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.6; }
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .floating-bubble-small {
-                font-size: 10px;
-                padding: 6px 8px;
-                right: 8px;
-                width: 70px;
-                height: 52.5px;
-            }
-            
-            .floating-bubble-small .bubble-icon {
-                font-size: 14px;
-            }
-        }
-    </style>
 
 
 
