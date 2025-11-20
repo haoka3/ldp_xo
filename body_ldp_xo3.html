@@ -2056,19 +2056,24 @@
 </div>
 
 <script>
-  // Kiểm tra nếu popup chưa hiển thị trong session
-  if(!sessionStorage.getItem('popupShown')) {
-    setTimeout(() => {
-      document.getElementById('popup').style.display = 'flex';
-      sessionStorage.setItem('popupShown', 'true'); // đánh dấu đã hiển thị trong session
-    }, 15000); // 15000ms = 15 giây
-  }
+  window.addEventListener('load', function() {
+    // Kiểm tra nếu popup chưa hiển thị trong session
+    if(!sessionStorage.getItem('popupShown')) {
+      setTimeout(() => {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'flex';   // bật flex để center
+        sessionStorage.setItem('popupShown', 'true'); // đánh dấu đã hiển thị
+      }, 15000); // 15000ms = 15 giây
+    }
 
-  // Đóng popup
-  document.getElementById('popup-close').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
+    // Đóng popup
+    document.getElementById('popup-close').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
   });
 </script>
+
+
 
 
 
