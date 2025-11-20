@@ -2081,6 +2081,66 @@
 
 
 
+<!-- BONG BÓNG NỔI BÊN PHẢI -->
+<a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="floating-bubble">
+  <span class="bubble-icon">📱</span>
+  Chuyển đến chế độ xem trên điện thoại
+</a>
+
+<style>
+/* Bong bóng nổi bên phải giữa màn hình */
+.floating-bubble {
+  position: fixed;
+  top: 50%;
+  right: 20px; /* khoảng cách từ mép phải */
+  transform: translateY(-50%);
+  background: #ff4757;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  animation: blink 1.5s infinite;
+  transition: all 0.3s ease;
+}
+
+/* Icon nếu muốn */
+.floating-bubble .bubble-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Hover hiệu ứng */
+.floating-bubble:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #ff6b81;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Hiệu ứng nhấp nháy */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.6; }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .floating-bubble {
+    font-size: 14px;
+    padding: 10px 16px;
+    right: 10px;
+  }
+}
+</style>
+
+
+
+
 
 
 
