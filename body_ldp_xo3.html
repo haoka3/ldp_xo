@@ -2280,6 +2280,64 @@
     });
 </script>
 
+<style>
+  /* Cho phép toàn bộ vùng IMAGE1 bấm được */
+  #IMAGE1 .ladi-image {
+    position: relative !important;
+    cursor: pointer !important;
+  }
+
+  /* Vùng click phủ toàn bộ */
+  #IMAGE1 .ladi-image:before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10 !important;
+  }
+
+  /* Text ICON + TRANG CHỦ nằm phía dưới */
+  #IMAGE1 .ladi-image:after {
+    content: "ICON + TRANG CHỦ" !important;
+    position: absolute !important;
+    bottom: -32px !important; /* đẩy xuống dưới */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #ff2d2d !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    z-index: 20 !important;
+
+    animation: blinkEffect 1.4s infinite !important;
+  }
+
+  /* Hiệu ứng nhấp nháy */
+  @keyframes blinkEffect {
+    0% { opacity: 1; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.55; transform: translateX(-50%) scale(1.07); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgElement = document.querySelector("#IMAGE1 .ladi-image");
+
+    if (imgElement) {
+      imgElement.addEventListener("click", function () {
+        window.open("https://xovietnam.vn/", "_blank");
+      });
+    }
+  });
+</script>
+
 
 
 
