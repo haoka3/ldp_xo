@@ -16,7 +16,34 @@
     </div>
   </div>
 </a>
+<style>
+    .home-link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none !important;
+}
 
+.home-link::after {
+  content: "🏠 TRANG CHỦ";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff0000;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 2px solid #ff0000;
+
+  /* BẮT BUỘC GHI ĐÈ */
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+
+</style>
+          
           
           
         <div id="HTML_CODE1" class="ladi-element">
@@ -2286,6 +2313,7 @@
         document.getElementById('floatingBubble').style.display = 'none';
     });
 </script>
+
 
 
 
