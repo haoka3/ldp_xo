@@ -233,88 +233,75 @@
 
 <div class="view-mobile-btn-wrapper">
   <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="view-mobile-btn">
-    🚀 <span class="important-text">IMPORTANT:</span> Xem giao diện trên Điện Thoại
+    🚀 XEM GIAO DIỆN TRÊN ĐIỆN THOẠI
   </a>
 </div>
 
 <style>
-  .view-mobile-btn-wrapper {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 18px !important;
-    margin-bottom: 25px !important;
+.view-mobile-btn-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 18px !important;
+  margin-bottom: 25px !important;
+}
+
+/* 🎯 Nút chính full width, chữ in đậm in hoa */
+.view-mobile-btn {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  padding: 20px 0 !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important; /* IN HOA */
+  letter-spacing: 1px !important;
+
+  background: #000 !important;
+  color: #fff !important;
+
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  border: 2px solid #ff2d2d !important;
+
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  box-shadow: 0 0 20px rgba(255, 50, 50, 0.35) !important;
+  transition: all 0.35s ease !important;
+
+  /* Pulse – nhấp nháy nhẹ, thu hút */
+  animation: pulseGlow 1.5s infinite !important;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1) !important;
+    box-shadow: 0 0 15px rgba(255, 50, 50, 0.35) !important;
   }
-
-  /* 🔥 Chữ đỏ IMPORTANT */
-  .important-text {
-    color: #ff2d2d !important;
-    font-weight: 900 !important;
-    animation: flashText 1.2s infinite alternate !important;
+  50% {
+    transform: scale(1.03) !important;
+    box-shadow: 0 0 30px rgba(255, 50, 50, 0.6) !important;
   }
-
-  @keyframes flashText {
-    from { opacity: 1; }
-    to { opacity: 0.45; }
+  100% {
+    transform: scale(1) !important;
+    box-shadow: 0 0 15px rgba(255, 50, 50, 0.35) !important;
   }
+}
 
-  /* 🎯 Nút chính */
-  .view-mobile-btn {
-    width: 100% !important;
-    max-width: 420px !important;
-    text-align: center !important;
-    padding: 18px 24px !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
+/* Hover nổi bật */
+.view-mobile-btn:hover {
+  background: #111 !important;
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 0 40px rgba(255, 50, 50, 0.8) !important;
+}
 
-    background: #000 !important;
-    color: #fff !important;
-
-    border-radius: 12px !important;
-    text-decoration: none !important;
-    border: 2px solid #ff2d2d !important;
-
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px !important;
-
-    box-shadow: 0 0 15px rgba(255, 50, 50, 0.28) !important;
-
-    transition: all 0.35s ease !important;
-
-    /* Nhấp nháy – tăng tương tác */
-    animation: pulseGlow 1.7s infinite !important;
-  }
-
-  /* ⚡ Animation nhấp nháy */
-  @keyframes pulseGlow {
-    0% {
-      transform: scale(1) !important;
-      box-shadow: 0 0 12px rgba(255, 50, 50, 0.28) !important;
-    }
-    50% {
-      transform: scale(1.03) !important;
-      box-shadow: 0 0 26px rgba(255, 50, 50, 0.5) !important;
-    }
-    100% {
-      transform: scale(1) !important;
-      box-shadow: 0 0 12px rgba(255, 50, 50, 0.28) !important;
-    }
-  }
-
-  /* ✨ Hover – nổi bật mạnh */
-  .view-mobile-btn:hover {
-    background: #111 !important;
-    transform: translateY(-4px) scale(1.05) !important;
-    box-shadow: 0 0 35px rgba(255, 50, 50, 0.7) !important;
-  }
-
-  /* Nhấn */
-  .view-mobile-btn:active {
-    transform: scale(0.94) !important;
-  }
+/* Nhấn */
+.view-mobile-btn:active {
+  transform: scale(0.95) !important;
+}
 </style>
 
 
@@ -2308,6 +2295,7 @@
         document.getElementById('floatingBubble').style.display = 'none';
     });
 </script>
+
 
 
 
