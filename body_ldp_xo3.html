@@ -2082,81 +2082,143 @@
 
 
 <!-- BONG BÓNG NỔI BÊN PHẢI 2 HÀNG -->
-    <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="floating-bubble-small">
-        <span class="bubble-icon">📱</span>
-        <span class="bubble-text">
-            Chuyển đến chế độ xem<br>trên điện thoại
-        </span>
-    </a>
+<!-- Placeholder cho cả 2 loại hiển thị -->
+<div id="bubble-container"></div>
 
 <style>
-        /* Bong bóng nổi bên phải giữa màn hình - hình chữ nhật 4:3 */
-        .floating-bubble-small {
-            position: fixed;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            background: #ff4757;
-            color: #fff;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 12px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
-            z-index: 9999;
-            animation: blink 1.5s infinite;
-            transition: all 0.3s ease;
-            width: 80px; /* Chiều rộng cố định */
-            height: 60px; /* Chiều cao cố định để đạt tỷ lệ 4:3 */
-            justify-content: center;
-            box-sizing: border-box;
-        }
+/* Android & Desktop: Bong bóng bên phải */
+.floating-bubble-small {
+    position: fixed;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: #ff4757;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    animation: blink 1.5s infinite;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 60px;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
-        /* Icon phía trên */
-        .floating-bubble-small .bubble-icon {
-            font-size: 16px;
-            margin-bottom: 2px;
-            line-height: 1;
-        }
+.floating-bubble-small .bubble-icon {
+    font-size: 16px;
+    margin-bottom: 2px;
+    line-height: 1;
+}
 
-        /* Text phía dưới */
-        .floating-bubble-small .bubble-text {
-            line-height: 1.2;
-        }
+.floating-bubble-small .bubble-text {
+    line-height: 1.2;
+}
 
-        /* Hover hiệu ứng */
-        .floating-bubble-small:hover {
-            transform: translateY(-50%) scale(1.1);
-            background: #ff6b81;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
+.floating-bubble-small:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: #ff6b81;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
 
-        /* Hiệu ứng nhấp nháy */
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.6; }
-        }
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.6; }
+}
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .floating-bubble-small {
-                font-size: 10px;
-                padding: 6px 8px;
-                right: 8px;
-                width: 70px;
-                height: 52.5px;
-            }
-            
-            .floating-bubble-small .bubble-icon {
-                font-size: 14px;
-            }
-        }
-    </style>
+@media (max-width: 768px) {
+    .floating-bubble-small {
+        font-size: 10px;
+        padding: 6px 8px;
+        right: 8px;
+        width: 70px;
+        height: 52.5px;
+    }
+    
+    .floating-bubble-small .bubble-icon {
+        font-size: 14px;
+    }
+}
+
+/* iOS: Trung tâm màn hình 1 dòng với nút X */
+.floating-bubble-ios {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff4757;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.floating-bubble-ios .close-btn {
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.floating-bubble-ios .close-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+</style>
+
+<script>
+(function() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const container = document.getElementById('bubble-container');
+
+    function createAndroidDesktopBubble() {
+        const a = document.createElement('a');
+        a.href = "https://xo-dealer-hub.lovable.app/";
+        a.target = "_blank";
+        a.className = "floating-bubble-small";
+        a.innerHTML = `<span class="bubble-icon">📱</span>
+                       <span class="bubble-text">Chuyển đến chế độ xem<br>trên điện thoại</span>`;
+        container.appendChild(a);
+    }
+
+    function createIOSBubble() {
+        const div = document.createElement('div');
+        div.className = "floating-bubble-ios";
+        div.innerHTML = `Chuyển đến chế độ xem trên điện thoại
+                         <span class="close-btn" onclick="this.parentElement.style.display='none'">✕</span>`;
+        container.appendChild(div);
+    }
+
+    if (/android/i.test(ua) || /Windows|Macintosh|Linux/i.test(ua)) {
+        // Android hoặc Desktop
+        createAndroidDesktopBubble();
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        // iOS
+        createIOSBubble();
+    }
+})();
+</script>
+
 
 
 
