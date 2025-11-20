@@ -204,7 +204,7 @@
 
 <div class="view-mobile-btn-wrapper">
   <a href="https://xo-dealer-hub.lovable.app/" target="_blank" class="view-mobile-btn">
-    🚀 Xem giao diện trên Điện Thoại
+    🚀 <span class="important-text">IMPORTANT:</span> Xem giao diện trên Điện Thoại
   </a>
 </div>
 
@@ -215,6 +215,18 @@
     justify-content: center;
     margin-top: 18px;
     margin-bottom: 25px;
+  }
+
+  /* 🔥 Chữ đỏ IMPORTANT */
+  .important-text {
+    color: #ff2d2d;
+    font-weight: 800;
+    animation: flashText 1.2s infinite alternate;
+  }
+
+  @keyframes flashText {
+    from { opacity: 1; }
+    to { opacity: 0.45; }
   }
 
   .view-mobile-btn {
@@ -229,26 +241,50 @@
     color: #fff;
     border-radius: 12px;
     text-decoration: none;
-    border: 2px solid #fff;
+    border: 2px solid #ff2d2d; /* viền đỏ theo chủ đề "Important" */
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 
     transition: all 0.35s ease;
-    box-shadow: 0 4px 15px rgba(255,255,255,0.18);
+    box-shadow: 0 0 15px rgba(255, 50, 50, 0.3);
+
+    /* ⚡ Nhấp nháy nhẹ toàn nút */
+    animation: pulseGlow 1.7s infinite;
   }
 
+  /* 💡 Nhấp nháy thu hút */
+  @keyframes pulseGlow {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 12px rgba(255, 50, 50, 0.28);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 22px rgba(255, 50, 50, 0.45);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 12px rgba(255, 50, 50, 0.28);
+    }
+  }
+
+  /* Hover siêu nổi bật */
   .view-mobile-btn:hover {
     background: #111;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(255,255,255,0.28);
+    transform: translateY(-4px) scale(1.03) rotate(0.3deg);
+    box-shadow: 0 0 28px rgba(255, 50, 50, 0.6);
   }
 
+  /* Nhấn xuống */
   .view-mobile-btn:active {
-    transform: scale(0.96);
+    transform: scale(0.95);
   }
 </style>
+
+
+            
 
             
         </div>
@@ -2238,6 +2274,7 @@
         document.getElementById('floatingBubble').style.display = 'none';
     });
 </script>
+
 
 
 
