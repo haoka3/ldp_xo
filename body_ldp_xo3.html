@@ -2407,34 +2407,35 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const images = [
-        "https://media.loveitopcdn.com/40953/z5682217084948-0452eba325eac67fa926d96a4fa30778.jpg",
-        "https://media.loveitopcdn.com/40953/162835-z5682217104983-618284dcc506f0b694f465be31a17ab8.jpg",
-        "https://media.loveitopcdn.com/40953/z5747810045078-fb08826d7ecdb8c75cfda0d75ea715b1.jpg",
-        "https://media.loveitopcdn.com/40953/162835-z5682217093141-64b529474a19a0a9f1b9eeab59c1687b.jpg",
-        "https://media.loveitopcdn.com/40953/162835-z5747810145919-861522c795d1e5e3b02eeebf84ea4b58.jpg",
-        "https://media.loveitopcdn.com/40953/162835-z5747810158793-ccd8427b192164af16e7a97be5e63938.jpg",
-        "https://media.loveitopcdn.com/40953/z5747810178589-ffccac0a1b22b6f922f7d7a26dcf3039.jpg",
-        "https://media.loveitopcdn.com/40953/162834-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg",
-        "https://media.loveitopcdn.com/40953/162834-kho-hang-phu-kien-dien-thoai-xo.jpg",
-        "https://media.loveitopcdn.com/40953/162834-showroom-phukien-dien-thoai-xo.jpg",
-        "https://media.loveitopcdn.com/40953/162834-showroom-dep-phu-kien-dien-thoai-xo.jpg",
-        "https://media.loveitopcdn.com/40953/140446-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg"
-    ];
+const images = [
+    "https://media.loveitopcdn.com/40953/z5682217084948-0452eba325eac67fa926d96a4fa30778.jpg",
+    "https://media.loveitopcdn.com/40953/162835-z5682217104983-618284dcc506f0b694f465be31a17ab8.jpg",
+    "https://media.loveitopcdn.com/40953/z5747810045078-fb08826d7ecdb8c75cfda0d75ea715b1.jpg",
+    "https://media.loveitopcdn.com/40953/162835-z5682217093141-64b529474a19a0a9f1b9eeab59c1687b.jpg",
+    "https://media.loveitopcdn.com/40953/162835-z5747810145919-861522c795d1e5e3b02eeebf84ea4b58.jpg",
+    "https://media.loveitopcdn.com/40953/162835-z5747810158793-ccd8427b192164af16e7a97be5e63938.jpg",
+    "https://media.loveitopcdn.com/40953/z5747810178589-ffccac0a1b22b6f922f7d7a26dcf3039.jpg",
+    "https://media.loveitopcdn.com/40953/162834-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg",
+    "https://media.loveitopcdn.com/40953/162834-kho-hang-phu-kien-dien-thoai-xo.jpg",
+    "https://media.loveitopcdn.com/40953/162834-showroom-phukien-dien-thoai-xo.jpg",
+    "https://media.loveitopcdn.com/40953/162834-showroom-dep-phu-kien-dien-thoai-xo.jpg",
+    "https://media.loveitopcdn.com/40953/140446-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg"
+];
 
-    let i = 0;
-    const bg = document.querySelector("#IMAGE2 .ladi-image-background");
+let i = 0;
+const bg = document.querySelector("#IMAGE2 .ladi-image-background");
 
-    function changeBG() {
-        bg.style.backgroundImage = `url('${images[i]}')`;
-        i = (i + 1) % images.length;
-    }
+function changeBG() {
+    if (!bg) return;
+    bg.style.removeProperty("background-image");
+    bg.style.backgroundImage = `url('${images[i]}')`;
+    i = (i + 1) % images.length;
+}
 
-    changeBG();  
-    setInterval(changeBG, 3000); // đổi ảnh mỗi 3 giây
-});
+changeBG();
+setInterval(changeBG, 3000);
 </script>
+
 
 
 
