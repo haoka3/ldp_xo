@@ -1880,6 +1880,130 @@
 
 <body>
 
+    <script>
+        // Product data with images and names
+        const xoProducts = [
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/165035-7.jpg",
+                name: "Phụ kiện XO"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/133806-2.jpg",
+                name: "Tai nghe XO"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/0-o-u-03.jpg",
+                name: "Phụ kiện"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/082152-3.jpg",
+                name: "Cáp sạc XO"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/090744-08.jpg",
+                name: "Lifestyle"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/the-nho-tf-xo.jpg",
+                name: "Thẻ nhớ XO"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/so-tan-nhiet-tu-tinh-xo-sl05-thiet-ke-dep.jpg",
+                name: "PC & Gaming"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/092204-2.jpg",
+                name: "Cáp sạc nhanh"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/sac-magsafe-chinh-hang-xo-pr264.jpg",
+                name: "Pin dự phòng"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/154027-5.jpg",
+                name: "Củ sạc XO"
+            },
+            {
+                image: "https://media.loveitopcdn.com/40953/thumb/123543-7.jpg",
+                name: "Tai nghe TWS"
+            }
+        ];
+    
+        // Function to shuffle array randomly
+        function xoShuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+    
+        // Function to initialize slider
+        function xoInitSlider() {
+            const slider = document.getElementById('xoImageSlider');
+            slider.innerHTML = '';
+    
+            // Shuffle products randomly
+            const shuffledProducts = xoShuffleArray([...xoProducts]);
+    
+            // Create two sets of products for seamless loop
+            const productSet = [...shuffledProducts, ...shuffledProducts];
+    
+            productSet.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'xo-product-card';
+                card.innerHTML = `
+                    <div class="xo-product-image-container">
+                        <img src="${product.image}" alt="${product.name}" class="xo-product-image" 
+                             onerror="this.src='https://via.placeholder.com/250x200/ff2a2a/ffffff?text=XO'">
+                    </div>
+                    <p class="xo-product-name">${product.name}</p>
+                `;
+                slider.appendChild(card);
+            });
+        }
+    
+        // Function to restart animation with new random order
+        function xoRestartAnimation() {
+            const slider = document.getElementById('xoImageSlider');
+            const currentAnimation = slider.style.animation;
+            slider.style.animation = 'none';
+    
+            setTimeout(() => {
+                xoInitSlider();
+                slider.style.animation = currentAnimation;
+            }, 50);
+        }
+    
+        // Initialize slider on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            xoInitSlider();
+    
+            // Play/Pause buttons functionality
+            const pauseBtn = document.getElementById('xoPauseBtn');
+            const playBtn = document.getElementById('xoPlayBtn');
+            const slider = document.getElementById('xoImageSlider');
+            
+            pauseBtn.addEventListener('click', function() {
+                slider.style.animationPlayState = 'paused';
+            });
+            
+            playBtn.addEventListener('click', function() {
+                slider.style.animationPlayState = 'running';
+            });
+    
+            // Restart animation with new random order every 40 seconds
+            setInterval(xoRestartAnimation, 40000);
+        });
+    
+        // Alternative: Restart on animation iteration
+        document.getElementById('xoImageSlider').addEventListener('animationiteration', function () {
+            setTimeout(xoRestartAnimation, 1000);
+        });
+    </script>
+    
+    
+
     <!-- ===================== HEADER START ===================== -->
 <header class="lp-header">
     <div class="lp-container">
@@ -2403,128 +2527,6 @@ setInterval(changeBackground, 5000);
         </div>
     </div>
 </section>
-
-<script>
-    // Product data with images and names
-    const xoProducts = [
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/165035-7.jpg",
-            name: "Phụ kiện XO"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/133806-2.jpg",
-            name: "Tai nghe XO"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/0-o-u-03.jpg",
-            name: "Phụ kiện"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/082152-3.jpg",
-            name: "Cáp sạc XO"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/090744-08.jpg",
-            name: "Lifestyle"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/the-nho-tf-xo.jpg",
-            name: "Thẻ nhớ XO"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/so-tan-nhiet-tu-tinh-xo-sl05-thiet-ke-dep.jpg",
-            name: "PC & Gaming"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/092204-2.jpg",
-            name: "Cáp sạc nhanh"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/sac-magsafe-chinh-hang-xo-pr264.jpg",
-            name: "Pin dự phòng"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/154027-5.jpg",
-            name: "Củ sạc XO"
-        },
-        {
-            image: "https://media.loveitopcdn.com/40953/thumb/123543-7.jpg",
-            name: "Tai nghe TWS"
-        }
-    ];
-
-    // Function to shuffle array randomly
-    function xoShuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    // Function to initialize slider
-    function xoInitSlider() {
-        const slider = document.getElementById('xoImageSlider');
-        slider.innerHTML = '';
-
-        // Shuffle products randomly
-        const shuffledProducts = xoShuffleArray([...xoProducts]);
-
-        // Create two sets of products for seamless loop
-        const productSet = [...shuffledProducts, ...shuffledProducts];
-
-        productSet.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'xo-product-card';
-            card.innerHTML = `
-                <div class="xo-product-image-container">
-                    <img src="${product.image}" alt="${product.name}" class="xo-product-image" 
-                         onerror="this.src='https://via.placeholder.com/250x200/ff2a2a/ffffff?text=XO'">
-                </div>
-                <p class="xo-product-name">${product.name}</p>
-            `;
-            slider.appendChild(card);
-        });
-    }
-
-    // Function to restart animation with new random order
-    function xoRestartAnimation() {
-        const slider = document.getElementById('xoImageSlider');
-        const currentAnimation = slider.style.animation;
-        slider.style.animation = 'none';
-
-        setTimeout(() => {
-            xoInitSlider();
-            slider.style.animation = currentAnimation;
-        }, 50);
-    }
-
-    // Initialize slider on page load
-    document.addEventListener('DOMContentLoaded', function () {
-        xoInitSlider();
-
-        // Play/Pause buttons functionality
-        const pauseBtn = document.getElementById('xoPauseBtn');
-        const playBtn = document.getElementById('xoPlayBtn');
-        const slider = document.getElementById('xoImageSlider');
-        
-        pauseBtn.addEventListener('click', function() {
-            slider.style.animationPlayState = 'paused';
-        });
-        
-        playBtn.addEventListener('click', function() {
-            slider.style.animationPlayState = 'running';
-        });
-
-        // Restart animation with new random order every 40 seconds
-        setInterval(xoRestartAnimation, 40000);
-    });
-
-    // Alternative: Restart on animation iteration
-    document.getElementById('xoImageSlider').addEventListener('animationiteration', function () {
-        setTimeout(xoRestartAnimation, 1000);
-    });
-</script>
 
 
 
