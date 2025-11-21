@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header Ladipage XO</title>
+    <title>Sỉ phụ kiện Xo Việt Nam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* HEADER */
@@ -423,6 +424,296 @@
     }
 }
 
+
+/*15:27-21-11*/
+/* Container chung */
+.brand-intro {
+  background-color: #f5f5f5; /* màu nền */
+  color: #1a1a1a; /* chữ */
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.brand-intro .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tiêu đề & mô tả */
+.brand-intro .intro-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.brand-intro .intro-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.brand-intro .intro-paragraphs {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Grid thông số */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+/* Icon placeholder */
+.stat-item .icon-globe,
+.stat-item .icon-users,
+.stat-item .icon-award,
+.stat-item .icon-trending {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+}
+
+/* Số & nhãn */
+.stat-item .number {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0077ff;
+  margin-bottom: 5px;
+}
+
+.stat-item .label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brand-intro .intro-text h2 {
+    font-size: 26px;
+  }
+
+  .brand-intro .intro-paragraphs {
+    font-size: 15px;
+  }
+
+  .stat-item .number {
+    font-size: 24px;
+  }
+}
+
+
+
+/* ===== BRAND SECTION STYLES ===== */
+ /* CSS riêng cho section giới thiệu XO Việt Nam */
+ .xo-brand-section {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .xo-brand-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .xo-brand-section::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .xo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .xo-brand-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .xo-brand-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .xo-brand-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+        
+        .xo-brand-description {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .xo-brand-description p {
+            margin-bottom: 20px;
+        }
+        
+        .xo-brand-description strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .xo-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .xo-stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .xo-stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        
+        .xo-stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .xo-stat-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .xo-stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .xo-stat-label {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .xo-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .xo-brand-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .xo-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .xo-brand-section {
+                padding: 60px 0;
+            }
+            
+            .xo-brand-title {
+                font-size: 1.8rem;
+            }
+            
+            .xo-brand-description {
+                font-size: 1rem;
+            }
+            
+            .xo-stat-card {
+                padding: 25px 20px;
+            }
+            
+            .xo-stat-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .xo-stat-number {
+                font-size: 2.2rem;
+            }
+        }
+
+
+
+
     </style>
 </head>
 
@@ -620,6 +911,55 @@ setInterval(changeBackground, 5000);
         allowfullscreen>
     </iframe>
 </div>
+  
+
+ <!-- Section giới thiệu XO Việt Nam -->
+ <section class="xo-brand-section">
+    <div class="xo-container">
+        <div class="xo-brand-header">
+            <h2 class="xo-brand-title">XO – Thương Hiệu Phụ Kiện Quốc Tế</h2>
+            <div class="xo-brand-description">
+                <p><strong>XO</strong> là thương hiệu phụ kiện nổi tiếng với độ phủ hơn <strong>60 quốc gia</strong>, cam kết chất lượng đạt tiêu chuẩn quốc tế với thiết kế hiện đại và độ bền cao.</p>
+                <p><strong>XO Việt Nam</strong> là đơn vị phân phối chính thức tại Việt Nam, chuyên cung cấp nguồn hàng sỉ ổn định với giá tốt nhất thị trường. Hàng mới về mỗi tuần để đảm bảo đại lý luôn bắt kịp xu hướng.</p>
+            </div>
+        </div>
+        
+        <div class="xo-stats-grid">
+            <div class="xo-stat-card">
+                <div class="xo-stat-icon">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <span class="xo-stat-number">60+</span>
+                <p class="xo-stat-label">Quốc gia</p>
+            </div>
+            
+            <div class="xo-stat-card">
+                <div class="xo-stat-icon">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <span class="xo-stat-number">475+</span>
+                <p class="xo-stat-label">Đại lý VN</p>
+            </div>
+            
+            <div class="xo-stat-card">
+                <div class="xo-stat-icon">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <span class="xo-stat-number">12</span>
+                <p class="xo-stat-label">Tháng BH</p>
+            </div>
+            
+            <div class="xo-stat-card">
+                <div class="xo-stat-icon">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
+                <span class="xo-stat-number">300+</span>
+                <p class="xo-stat-label">Sản phẩm</p>
+            </div>
+        </div>
+    </div>
+</section>
+  
   
 
 
