@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Ladipage XO</title>
+
+    <style>
+        /* HEADER */
+.lp-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 6px 0;
+}
+
+.lp-container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.lp-logo-img {
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Giữa */
+.lp-center-text {
+    text-align: center;
+    flex: 1;
+}
+
+.lp-center-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.lp-center-link:hover {
+    color: #ff5722;
+}
+
+/* Hotline + Button */
+.lp-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lp-hotline {
+    display: none; /* Ẩn mobile */
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+}
+
+.lp-hotline span {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Button */
+.lp-btn {
+    background: #ff5722;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.lp-btn:hover {
+    background: #e64a19;
+}
+
+/* RESPONSIVE */
+@media(min-width: 768px) {
+    .lp-hotline {
+        display: block;
+    }
+}
+
+@media(max-width: 768px) {
+    .lp-center-text {
+        display: none; /* Ẩn giữa trên mobile cho gọn */
+    }
+}
+
+
+
+/*--------------------s1----*/
+/* ===== HERO SECTION ===== */
+.xo-hero {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 560px;          /* desktop: khoảng 500–600px là ổn */
+    padding: 80px 0 110px;      /* tạo khoảng thở để nút không bị sát mép */
+}
+
+/* ===== SLIDER BACKGROUND ===== */
+.xo-slider {
+    position: absolute;
+    inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+    background-size: cover; /* tự resize ảnh, luôn full khung */
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: brightness(0.45);
+    transition: background-image 1.2s ease-in-out;
+}
+
+/* Nội dung căn giữa trong hero */
+.xo-hero-content {
+    position: relative;
+    z-index: 3;
+    width: 92%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 0;
+}
+
+
+
+
+.xo-home-icon {
+    font-size: 22px;
+}
+
+/* Title */
+.xo-title {
+    font-size: 34px;                 /* chữ to */
+    font-weight: 900;                /* siêu đậm */
+    line-height: 1.35;               /* khoảng cách dòng thoáng */
+    text-align: center;              /* căn giữa */
+    text-transform: uppercase;       /* in hoa */
+    letter-spacing: 1.5px;           /* giãn chữ rộng ra */
+    margin: 20px auto;
+    padding: 10px 0;
+
+    /* 🎨 Gradient đỏ → vàng */
+    background: linear-gradient(90deg, #ff1e1e 0%, #ffae00 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Subtitle */
+.xo-subtitle {
+    font-size: 18px;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+/* Features */
+.xo-features {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.xo-feature-item {
+    text-align: center;
+}
+
+.xo-feature-icon {
+    font-size: 40px;
+    margin-bottom: 6px;
+}
+
+.xo-feature-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Buttons */
+.xo-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.xo-btn-call,
+.xo-btn-register {
+    padding: 14px 26px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Call = Black */
+.xo-btn-call {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.xo-btn-call:hover {
+    background: #111;
+    transform: translateY(-3px);
+}
+
+/* Register = Red */
+.xo-btn-register {
+    background: #ff2d2d;
+    color: #fff;
+}
+
+.xo-btn-register:hover {
+    background: #d51818;
+    transform: translateY(-3px);
+}
+
+
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width: 768px) {
+    .xo-hero {
+        min-height: auto;
+    	height: auto;
+        padding: 60px 0 80px;
+    }
+
+    .xo-hero-content {
+        width: 94%;
+        padding-top: 0;
+    }
+    
+    .xo-subtitle { font-size: 16px; }
+    .xo-feature-icon { font-size: 34px; }
+    .xo-buttons { flex-direction: column; }
+
+    .xo-buttons {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .xo-btn-call,
+    .xo-btn-register {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .xo-title {
+        font-size: 26px;       /* nhỏ lại cho vừa màn nhỏ */
+        line-height: 1.35;
+        letter-spacing: 1px;
+    }
+}
+
+
+/* ================================
+   SECTION TỔNG – nền + khoảng cách
+================================ */
+.xo-benefit-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+  padding: 60px 20px;
+}
+
+/* Container giới hạn độ rộng */
+.xo-benefit-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================================
+   TIÊU ĐỀ SECTION
+================================ */
+.xo-benefit-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.xo-benefit-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a202c;
+  margin-bottom: 12px;
+}
+
+.xo-benefit-title span {
+  background: linear-gradient(90deg, #ff1e1e, #ffb400);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.xo-benefit-subtitle {
+  color: #64748b;
+  font-size: 18px;
+}
+
+/* ================================
+   GRID 3 CỘT (PC) – 2 CỘT (Tablet) – 1 CỘT (Mobile)
+================================ */
+.xo-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .xo-benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .xo-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .xo-benefit-title {
+    font-size: 28px;
+  }
+}
+
+/* ================================
+   ITEM – card
+================================ */
+.xo-benefit-item {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Hover – PC */
+.xo-benefit-item:hover {
+  border-color: #ff303080;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+}
+
+/* ================================
+   ICON
+================================ */
+.xo-icon {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  background: rgba(255, 0, 0, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* Văn bản */
+.xo-benefit-item p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.45;
+}
+
+
+/*------------------------*/
+.xo-video-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.xo-video-wrapper iframe {
+    width: 100%;
+    height: 360px;
+}
+
+@media (min-width: 768px) {
+    .xo-video-wrapper iframe {
+        height: 520px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ===================== HEADER START ===================== -->
+<header class="lp-header">
+    <div class="lp-container">
+
+        <!-- Logo (bo tròn + link về trang chủ) -->
+        <div class="lp-logo">
+            <a href="https://xovietnam.vn/" title="🏠︎ TRANG CHỦ">
+                <img src="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" 
+                     alt="🏠︎ TRANG CHỦ" 
+                     class="lp-logo-img">
+            </a>
+        </div>
+
+        <!-- Dòng chữ ở giữa -->
+        <div class="lp-center-text">
+            <a href="https://xovietnam.vn/" class="lp-center-link">
+                Web site chính thức phân phối Sản phẩm XO tại Việt Nam
+            </a>
+        </div>
+
+        <!-- Hotline + Button -->
+        <div class="lp-actions">
+            <a href="tel:0932114128" class="lp-hotline">
+                Hotline: <span>0932.114.128</span>
+            </a>
+            <button class="lp-btn">Đăng ký ngay</button>
+        </div>
+
+    </div>
+</header>
+    <!-- ===================== HEADER END ===================== -->
+<!-- ===========================
+     HERO SECTION SLIDER + CONTENT
+=========================== -->
+<section class="xo-hero">
+
+    <!-- Slider Background -->
+    <div class="xo-slider" id="xoSlider"></div>
+
+    <!-- Content Center -->
+    <div class="xo-hero-content">
+        
+     
+
+        <!-- Headline -->
+        <h1 class="xo-title">
+            Tuyển Đại Lý & Khách Sỉ Phụ Kiện Điện Thoại XO – Giá Sỉ Tốt Nhất, Lợi Nhuận Cao
+        </h1>
+
+        <p class="xo-subtitle">
+            Nhập khẩu trực tiếp – Mẫu mới mỗi tuần – Lợi nhuận 25–45% – Bảo hành 12–18 tháng
+        </p>
+
+        <!-- Feature Icons -->
+        <div class="xo-features">
+            <div class="xo-feature-item">
+                <div class="xo-feature-icon">📈</div>
+                <div class="xo-feature-text">Lợi nhuận 25–45%</div>
+            </div>
+
+            <div class="xo-feature-item">
+                <div class="xo-feature-icon">🛠️</div>
+                <div class="xo-feature-text">Bảo hành 12–18 tháng</div>
+            </div>
+
+            <div class="xo-feature-item">
+                <div class="xo-feature-icon">📦</div>
+                <div class="xo-feature-text">300+ Sản phẩm</div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="xo-buttons">
+            <a href="tel:0932114128" class="xo-btn-call">📞 Gọi tư vấn ngay</a>
+            <button onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})" class="xo-btn-register">
+                Đăng ký ngay
+            </button>
+        </div>
+
+
+    </div>
+</section>
+
+<script>
+const sliderImages = [
+ "https://media.loveitopcdn.com/40953/z5682217084948-0452eba325eac67fa926d96a4fa30778.jpg",
+ "https://media.loveitopcdn.com/40953/162835-z5682217104983-618284dcc506f0b694f465be31a17ab8.jpg",
+ "https://media.loveitopcdn.com/40953/z5747810045078-fb08826d7ecdb8c75cfda0d75ea715b1.jpg",
+ "https://media.loveitopcdn.com/40953/162835-z5682217093141-64b529474a19a0a9f1b9eeab59c1687b.jpg",
+ "https://media.loveitopcdn.com/40953/162835-z5747810145919-861522c795d1e5e3b02eeebf84ea4b58.jpg",
+ "https://media.loveitopcdn.com/40953/162835-z5747810158793-ccd8427b192164af16e7a97be5e63938.jpg",
+ "https://media.loveitopcdn.com/40953/z5747810178589-ffccac0a1b22b6f922f7d7a26dcf3039.jpg",
+ "https://media.loveitopcdn.com/40953/162834-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg",
+ "https://media.loveitopcdn.com/40953/162834-kho-hang-phu-kien-dien-thoai-xo.jpg",
+ "https://media.loveitopcdn.com/40953/162834-showroom-phukien-dien-thoai-xo.jpg",
+ "https://media.loveitopcdn.com/40953/162834-showroom-dep-phu-kien-dien-thoai-xo.jpg",
+ "https://media.loveitopcdn.com/40953/140446-z5682217047754-31aa43d899d5656d6cf98f6bf9e55beb.jpg"
+];
+
+let current = 0;
+const slider = document.getElementById("xoSlider");
+
+function changeBackground() {
+    slider.style.backgroundImage = `url('${sliderImages[current]}')`;
+    current = (current + 1) % sliderImages.length;
+}
+
+changeBackground();
+setInterval(changeBackground, 5000);
+</script>
+
+<section class="xo-benefit-section">
+    <div class="xo-benefit-container">
+  
+      <div class="xo-benefit-header">
+        <h2 class="xo-benefit-title">
+          Tại Sao <span>475+ Đại Lý</span> Chọn XO Việt Nam?
+        </h2>
+        <p class="xo-benefit-subtitle">
+          Trở thành đối tác của thương hiệu phụ kiện hàng đầu toàn cầu
+        </p>
+      </div>
+  
+      <div class="xo-benefit-grid">
+  
+        <!-- ITEM -->
+        <div class="xo-benefit-item">
+          <div class="xo-icon">
+            🌐
+          </div>
+          <p>Thương hiệu XO có mặt tại 60+ quốc gia</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">💰</div>
+          <p>Nhập khẩu trực tiếp – giá sỉ tốt nhất</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">📦</div>
+          <p>300+ sản phẩm: cáp, củ, tai nghe, pin, lifestyle…</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">⚡</div>
+          <p>Mẫu mới về mỗi tuần – bắt trend cực nhanh</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">📈</div>
+          <p>Chiết khấu cao – lợi nhuận 25–45%</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">🛡️</div>
+          <p>Bảo hành rõ ràng 12–18 tháng – đổi mới nếu lỗi</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">👥</div>
+          <p>Không cạnh tranh giá giữa đại lý</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">🎨</div>
+          <p>Hỗ trợ marketing: hình ảnh – video – content</p>
+        </div>
+  
+        <div class="xo-benefit-item">
+          <div class="xo-icon">✔️</div>
+          <p>Nhập thử chỉ từ 2–5 triệu</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+ 
+
+
+  <div class="xo-video-wrapper">
+    <iframe 
+        width="1840"
+        height="1097"
+        src="https://www.youtube.com/embed/-3qmNnzawdE"
+        title="🔥 Săn Hàng Phụ Kiện Điện Thoại Giá Sỉ Cực Sốc!  Bảng Giá Phụ Kiện Điện Thoại Giá Sỉ mới nhất 2025!"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+</div>
+  
+
+
+    <!-- 📌 TỪ ĐÂY TRỞ XUỐNG BẠN SẼ PHÁT TRIỂN CÁC SECTION TIẾP THEO -->
+    <!-- ví dụ: section hero, slider, giới thiệu, sản phẩm... -->
+
+    <!-- SECTION 1 - bạn thêm code vào đây -->
+    <!-- SECTION 2 - thêm tiếp ở đây -->
+    <!-- SECTION 3 - và thêm tiếp tại đây -->
+
+</body>
+</html>
