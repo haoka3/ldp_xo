@@ -1994,6 +1994,58 @@
 
 
 
+
+
+
+
+
+
+
+        /* Container cố định bên trái */
+  .floating-buttons {
+    position: fixed;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+  }
+  
+  /* Nút chung */
+  .floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+  
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Nút gọi điện */
+  .call-btn {
+    background-color: #28a745; /* xanh lá */
+    color: white;
+    font-size: 24px;
+  }
+  
+  /* Nút Zalo */
+  .zalo-btn {
+    background-color: white;
+    color: blue !important; /* xanh dương chữ Zalo */
+    font-size: 16px;
+    text-align: center;
+  }
+
     </style>
 </head>
 
@@ -3074,54 +3126,7 @@ setInterval(changeBackground, 5000);
     </a>
   </div>
   
-  <!-- CSS -->
-  
-  <style>
-  /* Container cố định bên trái */
-  .floating-buttons {
-    position: fixed;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 9999;
-  }
-  
-  /* Nút chung */
-  .floating-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-  }
-  
-  .floating-btn:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Nút gọi điện */
-  .call-btn {
-    background-color: #28a745; /* xanh lá */
-    color: white;
-    font-size: 24px;
-  }
-  
-  /* Nút Zalo */
-  .zalo-btn {
-    background-color: white;
-    color: blue !important; /* xanh dương chữ Zalo */
-    font-size: 16px;
-    text-align: center;
-  }
-  </style>
+
 
     <!-- 📌 TỪ ĐÂY TRỞ XUỐNG BẠN SẼ PHÁT TRIỂN CÁC SECTION TIẾP THEO -->
     <!-- ví dụ: section hero, slider, giới thiệu, sản phẩm... -->
@@ -3132,3 +3137,4 @@ setInterval(changeBackground, 5000);
 
 </body>
 </html>
+
