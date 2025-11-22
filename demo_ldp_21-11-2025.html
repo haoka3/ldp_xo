@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- Charset & Responsive -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sỉ phụ kiện Xo Việt Nam</title>
+    
+    <!-- Title chuẩn SEO -->
+    <title>Sỉ phụ kiện XO Việt Nam – Giá sỉ tốt nhất, chiết khấu cao</title>
+
+    <!-- Description -->
+    <meta name="description" content="Tìm kiếm sỉ phụ kiện điện thoại XO tại Việt Nam? Chúng tôi cung cấp giá sỉ tốt nhất, chiết khấu cao, hỗ trợ đại lý toàn quốc. Đăng ký ngay để nhận bảng giá mới nhất 2025!">
+
+    <!-- Keywords (có thể thay đổi theo sản phẩm) -->
+    <meta name="keywords" content="phụ kiện điện thoại, sỉ phụ kiện XO, đại lý XO, giá sỉ XO, bán buôn phụ kiện điện thoại, XO Việt Nam">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://xovietnam.vn/">
+
+    <!-- Open Graph (Facebook, Zalo, Messenger) -->
+    <meta property="og:title" content="Sỉ phụ kiện XO Việt Nam – Giá sỉ tốt nhất, chiết khấu cao">
+    <meta property="og:description" content="Tìm kiếm sỉ phụ kiện điện thoại XO tại Việt Nam? Đăng ký ngay để nhận bảng giá mới nhất 2025.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xovietnam.vn/">
+    <meta property="og:image" content="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg">
+    <meta property="og:site_name" content="XO Việt Nam">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sỉ phụ kiện XO Việt Nam – Giá sỉ tốt nhất, chiết khấu cao">
+    <meta name="twitter:description" content="Tìm kiếm sỉ phụ kiện điện thoại XO tại Việt Nam? Đăng ký ngay để nhận bảng giá mới nhất 2025.">
+    <meta name="twitter:image" content="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" type="image/png">
+
+    <!-- Schema.org – LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "XO Việt Nam",
+      "image": "https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg",
+      "url": "https://xovietnam.vn/",
+      "telephone": "0932114128",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "description": "Sỉ phụ kiện điện thoại XO Việt Nam – Giá sỉ tốt nhất, chiết khấu cao, hỗ trợ đại lý toàn quốc."
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -2202,8 +2249,210 @@
     }
 }
 
+/* Slider --------------------------*/
 
+.store-activities {
+            width: 100%;
+            padding: 3rem 1rem;
+            overflow: hidden;
+        }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 50%;
+            padding: 0.75rem;
+        }
+
+        .slide-content {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 400px;
+        }
+
+        .slide-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-btn:hover {
+            background-color: #fff;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* Gradient Overlays */
+        .gradient-overlay-left,
+        .gradient-overlay-right {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .gradient-overlay-left {
+            left: 0;
+            background: linear-gradient(90deg, rgba(248, 250, 252, 0.9) 0%, transparent 100%);
+        }
+
+        .gradient-overlay-right {
+            right: 0;
+            background: linear-gradient(270deg, rgba(248, 250, 252, 0.9) 0%, transparent 100%);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .slide {
+                flex: 0 0 50%;
+            }
+            
+            .slide-content {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                flex: 0 0 100%;
+            }
+            
+            .slider-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .prev-btn {
+                left: 10px;
+            }
+            
+            .next-btn {
+                right: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide-content {
+                height: 280px;
+            }
+            
+            .slider-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .gradient-overlay-left,
+            .gradient-overlay-right {
+                width: 50px;
+            }
+        }
+
+        /* Animation for automatic sliding */
+        @keyframes autoSlide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% / 2));
+            }
+        }
+
+        .auto-slide {
+            animation: autoSlide 30s linear infinite;
+        }
+
+        .slider-wrapper:hover .auto-slide {
+            animation-play-state: paused;
+        }
 
     </style>
 </head>
@@ -2365,9 +2614,9 @@
           </a>
   
           <!-- TEXT CHÍNH (Desktop Only) -->
-          <div class="lp-center-text">
-              Web site chính thức phân phối Sản phẩm XO tại Việt Nam
-          </div>
+          <a href="https://xovietnam.vn/" class="lp-center-text">
+              Website chính thức phân phối Sản phẩm XO tại Việt Nam
+          </a>
   
           <!--nút sdt  -->
           <a href="tel:0932114128" class="xo-phone-btn">
@@ -2602,6 +2851,183 @@ setInterval(changeBackground, 5000);
         </div>
     </div>
 </section>
+
+
+<!------- slider-->
+
+<section class="store-activities">
+  <div class="section-title">
+      <h2>Hoạt Động <span style="color: #ff2a2a;">Cửa Hàng</span></h2>
+      <p>Khám phá những khoảnh khắc đặc biệt và hoạt động tại Xo Việt Nam</p>
+  </div>
+
+  <div class="slider-container">
+      <div class="slider-wrapper">
+          <div class="slider auto-slide" id="imageSlider">
+              <!-- Slides will be dynamically inserted here -->
+          </div>
+          <div class="gradient-overlay-left"></div>
+          <div class="gradient-overlay-right"></div>
+          <button class="slider-btn prev-btn">&lt;</button>
+          <button class="slider-btn next-btn">&gt;</button>
+      </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Danh sách ảnh hoạt động cửa hàng
+      const activities = [
+          'https://media.loveitopcdn.com/40953/142649-6.jpg',
+          'https://media.loveitopcdn.com/40953/142649-7.jpg',
+          'https://media.loveitopcdn.com/40953/142649-8.jpg',
+          'https://media.loveitopcdn.com/40953/142649-9.jpg',
+          'https://media.loveitopcdn.com/40953/142649-10.jpg',
+          'https://media.loveitopcdn.com/40953/142648-2.jpg',
+          'https://media.loveitopcdn.com/40953/142648-1.jpg',
+          'https://media.loveitopcdn.com/40953/142648-3.jpg',
+          'https://media.loveitopcdn.com/40953/142648-4.jpg',
+          'https://media.loveitopcdn.com/40953/142648-5.jpg'
+      ];
+
+      const slider = document.getElementById('imageSlider');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      
+      let isAutoSliding = true;
+      let currentIndex = 0;
+      let slidesToShow = window.innerWidth <= 768 ? 1 : 2;
+      
+      // Khởi tạo slider
+      function initSlider() {
+          slider.innerHTML = '';
+          
+          // Tạo hai bản sao của tất cả ảnh để tạo hiệu ứng vô hạn mượt mà
+          const slidesSet = [...activities, ...activities];
+          
+          slidesSet.forEach((image, index) => {
+              const slide = document.createElement('div');
+              slide.className = 'slide';
+              slide.innerHTML = `
+                  <div class="slide-content">
+                      <img src="${image}" alt="Hoạt động cửa hàng ${index + 1}" 
+                           onerror="this.src='https://via.placeholder.com/600x400/f1f5f9/64748b?text=Hình+ảnh+hoạt+động'">
+                  </div>
+              `;
+              slider.appendChild(slide);
+          });
+          
+          updateSliderPosition();
+      }
+      
+      // Cập nhật vị trí slider
+      function updateSliderPosition() {
+          const slideWidth = 100 / slidesToShow;
+          slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+      }
+      
+      // Chuyển đến slide tiếp theo
+      function nextSlide() {
+          currentIndex++;
+          if (currentIndex >= activities.length) {
+              // Khi đến cuối, chuyển về đầu một cách mượt mà
+              setTimeout(() => {
+                  slider.style.transition = 'none';
+                  currentIndex = 0;
+                  updateSliderPosition();
+                  setTimeout(() => {
+                      slider.style.transition = 'transform 0.5s ease-in-out';
+                  }, 50);
+              }, 500);
+          }
+          updateSliderPosition();
+      }
+      
+      // Chuyển đến slide trước đó
+      function prevSlide() {
+          currentIndex--;
+          if (currentIndex < 0) {
+              // Khi đến đầu, chuyển về cuối một cách mượt mà
+              setTimeout(() => {
+                  slider.style.transition = 'none';
+                  currentIndex = activities.length - 1;
+                  updateSliderPosition();
+                  setTimeout(() => {
+                      slider.style.transition = 'transform 0.5s ease-in-out';
+                  }, 50);
+              }, 500);
+          }
+          updateSliderPosition();
+      }
+      
+      // Xử lý sự kiện nút next
+      nextBtn.addEventListener('click', function() {
+          pauseAutoSlide();
+          nextSlide();
+          restartAutoSlideAfterDelay();
+      });
+      
+      // Xử lý sự kiện nút prev
+      prevBtn.addEventListener('click', function() {
+          pauseAutoSlide();
+          prevSlide();
+          restartAutoSlideAfterDelay();
+      });
+      
+      // Tự động chuyển slide
+      let autoSlideInterval;
+      
+      function startAutoSlide() {
+          if (isAutoSliding) {
+              autoSlideInterval = setInterval(nextSlide, 4000);
+          }
+      }
+      
+      function pauseAutoSlide() {
+          isAutoSliding = false;
+          clearInterval(autoSlideInterval);
+          slider.classList.remove('auto-slide');
+      }
+      
+      function restartAutoSlide() {
+          isAutoSliding = true;
+          slider.classList.add('auto-slide');
+          startAutoSlide();
+      }
+      
+      function restartAutoSlideAfterDelay() {
+          setTimeout(() => {
+              if (isAutoSliding) {
+                  restartAutoSlide();
+              }
+          }, 5000);
+      }
+      
+      // Xử lý responsive khi thay đổi kích thước cửa sổ
+      window.addEventListener('resize', function() {
+          const newSlidesToShow = window.innerWidth <= 768 ? 1 : 2;
+          if (newSlidesToShow !== slidesToShow) {
+              slidesToShow = newSlidesToShow;
+              updateSliderPosition();
+          }
+      });
+      
+      // Khởi tạo slider khi trang được tải
+      initSlider();
+      startAutoSlide();
+      
+      // Tạm dừng tự động chuyển khi hover
+      slider.addEventListener('mouseenter', pauseAutoSlide);
+      slider.addEventListener('mouseleave', function() {
+          if (isAutoSliding) {
+              restartAutoSlide();
+          }
+      });
+  });
+</script>
+
+
+<!------------------------------->
 
 
 <section class="best-seller-section">
