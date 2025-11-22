@@ -8,160 +8,291 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+
+      /*Zalo*/
+      /* Container cố định bên trái */
+  .floating-buttons {
+    position: fixed;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+  }
+  
+  /* Nút chung */
+  .floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+  
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Nút gọi điện */
+  .call-btn {
+    background-color: #28a745; /* xanh lá */
+    color: white;
+    font-size: 24px;
+  }
+  
+  /* Nút Zalo */
+  .zalo-btn {
+    background-color: white;
+    color: blue !important; /* xanh dương chữ Zalo */
+    font-size: 16px;
+    text-align: center;
+  }
         /* HEADER */
 /* HEADER */
-.lp-home-btn i {
-    margin-right: 6px;
-    font-size: 16px;
-}
-
-
 .lp-header {
     width: 100%;
-    background: #ffffff;
-    padding: 10px 0;
+    background: #fff;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 999;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    z-index: 9999;
 }
 
-/* Container */
 .lp-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
+    gap: 18px;
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
-/* Logo + Home */
-.lp-left {
+/* ICON MENU */
+.lp-menu-icon {
+    font-size: 28px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 
-.lp-logo-img {
-    width: 55px;
-    height: 55px;
+/* LOGO */
+.lp-logo img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-/* Nút Trang Chủ */
+/* TRANG CHỦ */
 .lp-home-btn {
-    padding: 8px 15px;
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: #f6f6f6;
+    padding: 8px 14px;
     font-weight: 600;
     color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 10px;
     text-decoration: none;
     transition: 0.3s;
 }
 .lp-home-btn:hover {
-    background: #ffe8b3;
+    background: #ffe4b3;
     transform: translateY(-2px);
 }
 
-/* Center text */
+/* TEXT CHÍNH */
 .lp-center-text {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    color: #444;
     font-size: 18px;
-    font-weight: 600;
-    color: #333;
-}
-.lp-center-text a {
-    text-decoration: none;
-    color: #333;
+    white-space: nowrap;
 }
 
-/* Hotline */
-.lp-hotline {
-    font-size: 15px;
-    font-weight: 600;
-    margin-right: 15px;
-    color: #e80000;
-}
-
-/* BUTTON ĐĂNG KÝ NGAY */
+/* NÚT ĐĂNG KÝ NGAY */
 .lp-btn {
-    background: linear-gradient(45deg, #ff0000, #ff7b00);
+    background: linear-gradient(45deg, #ff0000, #ff7a00);
     color: #fff;
     padding: 12px 22px;
     border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
+    border-radius: 14px;
+    font-size: 17px;
     font-weight: 700;
-    animation: pulse 1.7s infinite;
+    cursor: pointer;
     transition: 0.3s;
-}
-.lp-btn:hover {
-    transform: scale(1.08);
-    filter: brightness(1.1);
+    animation: pulse 1.7s infinite;
 }
 
-/* Hiệu ứng bong bóng */
+.lp-btn:hover {
+    transform: scale(1.08);
+    filter: brightness(1.12);
+}
+
+/* HIỆU ỨNG PULSE */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6); }
     70% { box-shadow: 0 0 0 15px rgba(255, 87, 34, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
 }
 
-/* ICON MENU MOBILE */
-.lp-menu-icon {
-    display: none;
-    font-size: 30px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
 /* MENU MOBILE */
 .lp-mobile-menu {
     display: none;
     flex-direction: column;
-    background: #ffffff;
+    background: #fff;
     padding: 15px;
     border-top: 1px solid #ddd;
 }
+
 .lp-mobile-menu a {
     padding: 12px 0;
     font-size: 18px;
+    font-weight: 600;
     color: #333;
     text-decoration: none;
-    font-weight: 600;
-}
-.lp-mobile-menu a:hover {
-    color: #ff4b00;
 }
 
-/* Khi mở */
 .lp-mobile-menu.open {
     display: flex;
 }
 
-
-/* ====================== MOBILE ====================== */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
     .lp-center-text {
         display: none;
     }
-    .lp-hotline {
-        display: none;
-    }
-    .lp-menu-icon {
-        display: block;
-    }
     .lp-btn {
         padding: 10px 18px;
-        font-size: 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lp-home-btn {
+        display: none;
     }
 }
 
 
 
 /*--------------------s1----*/
+
+/* Container nút */
+.xo-buttons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* Base button style */
+.xo-buttons a,
+.xo-buttons button {
+    flex: 1;
+    min-width: 150px;
+    padding: 14px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 14px;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    /* VIỀN TRẮNG MẢNH */
+    border: 2px solid #ffffff;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s;
+
+    /* Hiệu ứng pulse dễ chịu */
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Pulse nhẹ */
+@keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 0 0px rgba(255,255,255,0.0); }
+    50% { transform: scale(1.03); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+    100% { transform: scale(1); box-shadow: 0 0 0px rgba(255,255,255,0.0); }
+}
+
+/* Hover phát sáng */
+.xo-buttons a:hover,
+.xo-buttons button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    border-color: #fff; /* trắng sáng hơn */
+}
+
+/* Nút gọi */
+.xo-btn-call {
+    background: linear-gradient(45deg, #28a745, #3ddc84);
+}
+
+.xo-btn-call:hover {
+    background: linear-gradient(45deg, #1e7f37, #32c176);
+}
+
+/* Nút đăng ký */
+.xo-btn-register {
+    background: linear-gradient(45deg, #ff5722, #ff8a50);
+}
+
+.xo-btn-register:hover {
+    background: linear-gradient(45deg, #e64a19, #ff7043);
+}
+
+/* Hiệu ứng ánh sáng chạy qua */
+.xo-buttons a::after,
+.xo-buttons button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.xo-buttons a:hover::after,
+.xo-buttons button:hover::after {
+    left: 100%;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 480px) {
+    .xo-buttons {
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    .xo-buttons a,
+    .xo-buttons button {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+
+
 /* ===== HERO SECTION ===== */
 .xo-hero {
     position: relative;
@@ -253,13 +384,7 @@
 }
 
 /* Buttons */
-.xo-buttons {
-    margin-top: 35px;
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 
 .xo-btn-call,
 .xo-btn-register {
@@ -318,12 +443,9 @@
     
     .xo-subtitle { font-size: 16px; }
     .xo-feature-icon { font-size: 34px; }
-    .xo-buttons { flex-direction: column; }
+    
 
-    .xo-buttons {
-        width: 100%;
-        gap: 12px;
-    }
+  
 
     .xo-btn-call,
     .xo-btn-register {
@@ -1874,7 +1996,7 @@
 /* Form Wrapper */
 .form-wrapper {
   width: 100%;
-  height: 800px; /* Tùy chỉnh theo chiều dài form */
+  height: 900px; /* Tùy chỉnh theo chiều dài form */
   max-width: 800px;
   margin: 0 auto 2rem auto;
   border-radius: 16px;
@@ -1886,7 +2008,7 @@
 
 .form-wrapper iframe {
   width: 100%;
-  height: 100%;
+  height: 900px;
   border: none;
 }
 
@@ -1915,7 +2037,7 @@
   }
 
   .form-wrapper {
-    height: 780px;
+    height: 840px;
   }
 }
 
@@ -1925,15 +2047,13 @@
   }
 
   .form-wrapper {
-    height: 770px;
+    height: 780px;
   }
 
   .form-note {
     font-size: 0.9rem;
   }
 }
-
-
 
 
 
@@ -1990,9 +2110,11 @@
 /* Form iframe đẹp hơn */
 .form-wrapper iframe {
     width: 100%;
-    height: 420px;
+    height: 800px;
     border: none;
 }
+
+
 
     </style>
 </head>
@@ -2121,60 +2243,55 @@
         });
     </script>
     
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+      <!-- Nút gọi điện -->
+      <a href="tel:0932114128" class="floating-btn call-btn">
+        📞
+      </a>
+      <!-- Nút Zalo -->
+      <a href="https://zalo.me/3301356433470014208" target="_blank" class="floating-btn zalo-btn">
+        Zalo
+      </a>
+    </div>
     
 
     <!-- ===================== HEADER START ===================== -->
     <header class="lp-header">
       <div class="lp-container">
   
-          <!-- Logo -->
-          <div class="lp-left">
-              <div class="lp-logo">
-                  <a href="https://xovietnam.vn/" title="Trang Chủ">
-                      <img src="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" class="lp-logo-img" alt="">
-                  </a>
-              </div>
-  
-              <!-- Nút Trang Chủ -->
-              <!-- Nút Trang Chủ -->
-                    <a href="https://xovietnam.vn/" class="lp-home-btn">
-                      <i class="fa-solid fa-house"></i> TRANG CHỦ
-                    </a>
-
+          <!-- ICON MENU -->
+          <div class="lp-menu-icon" onclick="toggleMenu()">
+              <i class="fa-solid fa-bars"></i>
           </div>
   
-          <!-- Dòng chữ ở giữa (Desktop only) -->
+          <!-- LOGO -->
+          <a href="https://xovietnam.vn/" class="lp-logo">
+              <img src="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" class="lp-logo-img" alt="">
+          </a>
+  
+          <!-- NÚT TRANG CHỦ -->
+          <a href="https://xovietnam.vn/" class="lp-home-btn">
+              <i class="fa-solid fa-house"></i>
+          </a>
+  
+          <!-- TEXT CHÍNH (Desktop Only) -->
           <div class="lp-center-text">
-              <a href="https://xovietnam.vn/" class="lp-center-link">
-                  Web site chính thức phân phối Sản phẩm XO tại Việt Nam
-              </a>
+              Web site chính thức phân phối Sản phẩm XO tại Việt Nam
           </div>
   
-          <!-- Actions -->
-          <div class="lp-actions">
-              <!-- Hotline -->
-              <a href="tel:0932114128" class="lp-hotline">
-                  Hotline: <span>0932.114.128</span>
-              </a>
-  
-              <!-- Button Đăng ký -->
-              <button class="lp-btn" onclick="
-                  document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})
-              ">
-                  Đăng ký ngay
-              </button>
-  
-              <!-- Icon Menu Mobile -->
-              <div class="lp-menu-icon" onclick="toggleMenu()">☰</div>
-          </div>
+          <!-- NÚT ĐĂNG KÝ -->
+          <button class="lp-btn" onclick="
+              document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})
+          ">
+              Đăng ký ngay
+          </button>
   
       </div>
   
       <!-- MENU MOBILE -->
       <div class="lp-mobile-menu" id="mobileMenu">
-        <a href="https://xovietnam.vn/" class="lp-home-btn">
-          <i class="fa-solid fa-house"></i> TRANG CHỦ
-        </a>
+          <a href="https://xovietnam.vn/"><i class="fa-solid fa-house"></i> Trang Chủ</a>
           <a href="tel:0932114128">📞 Gọi Hotline</a>
           <a href="https://zalo.me/0932114128">💬 Chat Zalo</a>
           <a href="#registration-form">📝 Đăng ký ngay</a>
@@ -2183,9 +2300,10 @@
   
   <script>
   function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle("open");
+      document.getElementById("mobileMenu").classList.toggle("open");
   }
   </script>
+  
   
     <!-- ===================== HEADER END ===================== -->
 <!-- ===========================
@@ -3062,7 +3180,11 @@ setInterval(changeBackground, 5000);
     </div>
   </footer>
   
+
+ 
+ 
   
+ 
 
     <!-- 📌 TỪ ĐÂY TRỞ XUỐNG BẠN SẼ PHÁT TRIỂN CÁC SECTION TIẾP THEO -->
     <!-- ví dụ: section hero, slider, giới thiệu, sản phẩm... -->
