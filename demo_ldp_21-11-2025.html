@@ -5,100 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sỉ phụ kiện Xo Việt Nam</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         /* HEADER */
+/* HEADER */
+.lp-home-btn i {
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+
 .lp-header {
     width: 100%;
     background: #ffffff;
-    border-bottom: 1px solid #eee;
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 999;
-    padding: 6px 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
+/* Container */
 .lp-container {
-    width: 92%;
-    max-width: 1250px;
+    max-width: 1200px;
     margin: auto;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
 }
 
-/* Logo */
+/* Logo + Home */
+.lp-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .lp-logo-img {
-    height: 46px;
-    width: 46px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-/* Giữa */
+/* Nút Trang Chủ */
+.lp-home-btn {
+    padding: 8px 15px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.lp-home-btn:hover {
+    background: #ffe8b3;
+    transform: translateY(-2px);
+}
+
+/* Center text */
 .lp-center-text {
-    text-align: center;
-    flex: 1;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
 }
-
-.lp-center-link {
+.lp-center-text a {
     text-decoration: none;
     color: #333;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s;
 }
 
-.lp-center-link:hover {
-    color: #ff5722;
-}
-
-/* Hotline + Button */
-.lp-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
+/* Hotline */
 .lp-hotline {
-    display: none; /* Ẩn mobile */
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    text-decoration: none;
-    color: #333;
+    margin-right: 15px;
+    color: #e80000;
 }
 
-.lp-hotline span {
-    color: #ff5722;
-    font-weight: bold;
-}
-
-/* Button */
+/* BUTTON ĐĂNG KÝ NGAY */
 .lp-btn {
-    background: #ff5722;
+    background: linear-gradient(45deg, #ff0000, #ff7b00);
     color: #fff;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
+    padding: 12px 22px;
     border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    animation: pulse 1.7s infinite;
     transition: 0.3s;
 }
-
 .lp-btn:hover {
-    background: #e64a19;
+    transform: scale(1.08);
+    filter: brightness(1.1);
 }
 
-/* RESPONSIVE */
-@media(min-width: 768px) {
+/* Hiệu ứng bong bóng */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 87, 34, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+}
+
+/* ICON MENU MOBILE */
+.lp-menu-icon {
+    display: none;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* MENU MOBILE */
+.lp-mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+.lp-mobile-menu a {
+    padding: 12px 0;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+.lp-mobile-menu a:hover {
+    color: #ff4b00;
+}
+
+/* Khi mở */
+.lp-mobile-menu.open {
+    display: flex;
+}
+
+
+/* ====================== MOBILE ====================== */
+@media (max-width: 768px) {
+    .lp-center-text {
+        display: none;
+    }
     .lp-hotline {
+        display: none;
+    }
+    .lp-menu-icon {
         display: block;
     }
-}
-
-@media(max-width: 768px) {
-    .lp-center-text {
-        display: none; /* Ẩn giữa trên mobile cho gọn */
+    .lp-btn {
+        padding: 10px 18px;
+        font-size: 15px;
     }
 }
 
@@ -1876,6 +1933,67 @@
   }
 }
 
+
+
+
+
+/* POPUP ĐĂNG KÝ */
+/* Nền mờ */
+.popup-wrapper {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* Khung popup */
+.popup-content {
+    background: #fff;
+    width: 95%;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 20px;
+    position: relative;
+    animation: popupShow 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hiệu ứng tăng dần */
+@keyframes popupShow {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Form iframe đẹp hơn */
+.form-wrapper iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+}
+
     </style>
 </head>
 
@@ -2006,35 +2124,69 @@
     
 
     <!-- ===================== HEADER START ===================== -->
-<header class="lp-header">
-    <div class="lp-container">
+    <header class="lp-header">
+      <div class="lp-container">
+  
+          <!-- Logo -->
+          <div class="lp-left">
+              <div class="lp-logo">
+                  <a href="https://xovietnam.vn/" title="Trang Chủ">
+                      <img src="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" class="lp-logo-img" alt="">
+                  </a>
+              </div>
+  
+              <!-- Nút Trang Chủ -->
+              <!-- Nút Trang Chủ -->
+                    <a href="https://xovietnam.vn/" class="lp-home-btn">
+                      <i class="fa-solid fa-house"></i> TRANG CHỦ
+                    </a>
 
-        <!-- Logo (bo tròn + link về trang chủ) -->
-        <div class="lp-logo">
-            <a href="https://xovietnam.vn/" title="🏠︎ TRANG CHỦ">
-                <img src="https://media.loveitopcdn.com/40953/thumb/logo-xo-1-1.jpg" 
-                     alt="🏠︎ TRANG CHỦ" 
-                     class="lp-logo-img">
-            </a>
-        </div>
-
-        <!-- Dòng chữ ở giữa -->
-        <div class="lp-center-text">
-            <a href="https://xovietnam.vn/" class="lp-center-link">
-                Web site chính thức phân phối Sản phẩm XO tại Việt Nam
-            </a>
-        </div>
-
-        <!-- Hotline + Button -->
-        <div class="lp-actions">
-            <a href="tel:0932114128" class="lp-hotline">
-                Hotline: <span>0932.114.128</span>
-            </a>
-            <button onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})" class="lp-btn">Đăng ký ngay</button>
-        </div>
-
-    </div>
-</header>
+          </div>
+  
+          <!-- Dòng chữ ở giữa (Desktop only) -->
+          <div class="lp-center-text">
+              <a href="https://xovietnam.vn/" class="lp-center-link">
+                  Web site chính thức phân phối Sản phẩm XO tại Việt Nam
+              </a>
+          </div>
+  
+          <!-- Actions -->
+          <div class="lp-actions">
+              <!-- Hotline -->
+              <a href="tel:0932114128" class="lp-hotline">
+                  Hotline: <span>0932.114.128</span>
+              </a>
+  
+              <!-- Button Đăng ký -->
+              <button class="lp-btn" onclick="
+                  document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})
+              ">
+                  Đăng ký ngay
+              </button>
+  
+              <!-- Icon Menu Mobile -->
+              <div class="lp-menu-icon" onclick="toggleMenu()">☰</div>
+          </div>
+  
+      </div>
+  
+      <!-- MENU MOBILE -->
+      <div class="lp-mobile-menu" id="mobileMenu">
+        <a href="https://xovietnam.vn/" class="lp-home-btn">
+          <i class="fa-solid fa-house"></i> TRANG CHỦ
+        </a>
+          <a href="tel:0932114128">📞 Gọi Hotline</a>
+          <a href="https://zalo.me/0932114128">💬 Chat Zalo</a>
+          <a href="#registration-form">📝 Đăng ký ngay</a>
+      </div>
+  </header>
+  
+  <script>
+  function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle("open");
+  }
+  </script>
+  
     <!-- ===================== HEADER END ===================== -->
 <!-- ===========================
      HERO SECTION SLIDER + CONTENT
@@ -2788,6 +2940,61 @@ setInterval(changeBackground, 5000);
       }
     </style>
   </section>
+
+
+<!-- POPUP ĐĂNG KÝ -->
+<div id="popup-wrapper" class="popup-wrapper">
+  <div class="popup-content">
+      <span class="popup-close" onclick="closePopup()">×</span>
+
+      <!-- Nhúng form của bạn -->
+      <section id="registration-form" class="registration-section">
+          <div class="container">
+              <div class="registration-header">
+                  <h2>ĐĂNG KÝ LÀM ĐẠI LÝ XO – NHẬN GIÁ SỈ NGAY</h2>
+                  <p>Để lại thông tin, chúng tôi sẽ liên hệ tư vấn trong 5 phút</p>
+              </div>
+
+              <div class="form-wrapper">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/viewform?embedded=true"
+                          frameborder="0" 
+                          marginheight="0" 
+                          marginwidth="0"
+                          allowfullscreen>
+                  </iframe>
+              </div>
+
+              <div class="form-note">
+                  <span>Cảm ơn Anh/Chị đã quan tâm. Chúng tôi sẽ liên hệ tư vấn ngay!</span>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+<script>
+  // Hiển thị popup sau 15s, nhưng chỉ 1 lần
+  document.addEventListener("DOMContentLoaded", function () {
+
+      // kiểm tra popup đã hiện chưa
+      if (sessionStorage.getItem("popupShown") === "true") return;
+
+      setTimeout(function () {
+          document.getElementById("popup-wrapper").style.display = "flex";
+          sessionStorage.setItem("popupShown", "true");   // đánh dấu đã hiển thị
+      }, 15000); // 15s
+  });
+
+  function closePopup() {
+      document.getElementById("popup-wrapper").style.display = "none";
+  }
+</script>
+
+
+
+
+
+
+
 
 
 
