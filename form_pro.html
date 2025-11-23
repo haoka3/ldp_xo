@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký khách sỉ XO Việt Nam</title>
+
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f8f9fa; }
+
+  .form-box {
+    max-width: 420px; margin: auto; padding: 25px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  }
+
+  input {
+    width: 100%; padding: 14px; margin: 10px 0;
+    border: 1px solid #ddd; border-radius: 8px;
+  }
+
+  button {
+    width: 100%; padding: 14px; background: #28a745;
+    color: white; border: none; border-radius: 8px;
+    font-size: 18px; cursor: pointer; transition: .2s;
+  }
+  button:hover { background: #218838; }
+
+  /* Popup */
+  #popup {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; justify-content: center; align-items: center;
+  }
+  .popup-box {
+    background: white; padding: 30px;
+    border-radius: 10px; text-align: center;
+    max-width: 300px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+  <h2>Đăng ký nhận bảng giá sỉ</h2>
+
+  <form id="xoForm">
+    <input type="text" id="ten" placeholder="Tên Khách Hàng" required>
+    <input type="tel" id="sdt" placeholder="Số điện thoại" required>
+    <button type="submit">Đăng ký ngay</button>
+  </form>
+</div>
+
+<!-- POPUP -->
+<div id="popup">
+  <div class="popup-box">
+    <h3>Cảm ơn bạn!</h3>
+    <p>Chúng tôi sẽ liên hệ ngay để tư vấn.</p>
+  </div>
+</div>
+
+<script>
+document.getElementById("xoForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let ten = document.getElementById("ten").value;
+  let sdt = document.getElementById("sdt").value;
+
+  // URL formResponse Google
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/formResponse";
+
+  let formData = new FormData();
+  formData.append("entry.1449734233", ten); // Tên Khách Hàng
+  formData.append("entry.1304547971", sdt); // Số điện thoại
+
+  // Gửi dữ liệu ngầm đến Google Form
+  fetch(FORM_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
+  // Hiện popup cảm ơn
+  document.getElementById("popup").style.display = "flex";
+});
+</script>
+
+</body>
+</html>
