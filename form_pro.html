@@ -68,24 +68,29 @@ document.getElementById("xoForm").addEventListener("submit", function(e){
   let ten = document.getElementById("ten").value;
   let sdt = document.getElementById("sdt").value;
 
-  // URL formResponse Google
   const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/formResponse";
 
-  let formData = new FormData();
-  formData.append("entry.1449734233", ten); // Tên Khách Hàng
-  formData.append("entry.1304547971", sdt); // Số điện thoại
+  let data = new FormData();
 
-  // Gửi dữ liệu ngầm đến Google Form
+  // --- 2 TRƯỜNG CHÍNH ---
+  data.append("entry.1449734233", ten); 
+  data.append("entry.1304547971", sdt);
+
+  // --- TRƯỜNG REQUIRED KHÁC (bắt buộc phải có) ---
+  data.append("entry.2135963236", "Khách gửi từ landing page");
+  data.append("entry.1427665625", "5"); // scale 1-5 → bắt buộc gửi giá trị
+
   fetch(FORM_URL, {
     method: "POST",
     mode: "no-cors",
-    body: formData
+    body: data
   });
 
-  // Hiện popup cảm ơn
   document.getElementById("popup").style.display = "flex";
 });
 </script>
 
+
 </body>
 </html>
+
