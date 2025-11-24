@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -11,8 +12,10 @@ body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x
 
 .registration-section { padding: 6vh 5vw; display: flex; justify-content: center; }
 .container { max-width: 500px; width: 100%; background: #fff; border-radius: 15px; padding: 5vh 5vw; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
+
 .registration-header h2 { font-size: 2rem; font-weight: 700; color:#111827; margin-bottom: 0.5rem; }
 .registration-header p { font-size: 1rem; color:#374151; margin-bottom: 2rem; }
+
 .registration-form-container { text-align:left; }
 .form-group { margin-bottom: 1.5rem; position: relative; }
 .form-group label { display:block; font-weight:600; margin-bottom:0.3rem; color:#111827; font-size:1rem; }
@@ -51,24 +54,27 @@ body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x
 
     <div class="registration-form-container">
       <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/formResponse"
-        method="POST" target="_blank">
+        method="POST" target="hidden_iframe">
 
         <div class="form-group">
           <label>Số điện thoại</label>
-          <input type="tel" id="phone" name="entry.587844483" class="form-control" placeholder="Nhập số điện thoại của bạn" required>
+          <input type="tel" id="phone" name="entry.587844483" class="form-control" placeholder="Nhập số điện thoại" required>
           <div class="error-message" id="phoneError">Vui lòng nhập số điện thoại!</div>
         </div>
 
         <div class="form-group">
           <label>Tên khách hàng</label>
-          <input type="text" id="name" name="entry.1967686039" class="form-control" placeholder="Nhập tên của bạn" required>
+          <input type="text" id="name" name="entry.1967686039" class="form-control" placeholder="Nhập tên" required>
           <div class="error-message" id="nameError">Vui lòng nhập tên!</div>
         </div>
 
-        <button type="submit" class="btn-primary">🚀 Đăng ký ngay</button>
+        <button type="submit" class="btn-primary" id="submitBtn">🚀 Đăng ký ngay</button>
       </form>
     </div>
   </div>
+
+  <!-- Iframe ẩn gửi dữ liệu -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 </section>
 
 <div id="thankyouPopup" class="thankyou-popup">
@@ -77,11 +83,11 @@ body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x
     <div class="thankyou-icon">✓</div>
     <h2 class="thankyou-title">Cảm ơn Anh/Chị!</h2>
     <p class="thankyou-message">
-      Cảm ơn Anh/Chị đã quan tâm đến sản phẩm và dịch vụ của chúng tôi. Chúng tôi sẽ phục vụ Anh/Chị với dịch vụ, sản phẩm và giá sỉ ưu đãi tốt nhất!
+      Chúng tôi đã nhận thông tin đăng ký. Chúng tôi sẽ liên hệ Anh/Chị với sản phẩm và giá sỉ ưu đãi!
     </p>
     <a href="https://zalo.me/3301356433470014208" target="_blank" class="thankyou-zalo-btn">
       <img src="https://static.loveitopcdn.com/themes/base/images/icons/icon-zalo.svg" alt="Zalo" class="zalo-icon">
-      <span>Nhắn tin Zalo ngay để được tư vấn nhanh nhất và ưu đãi tốt nhất</span>
+      <span>Nhắn tin Zalo ngay để được tư vấn nhanh</span>
     </a>
   </div>
 </div>
@@ -94,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const phoneError = document.getElementById('phoneError');
   const nameError = document.getElementById('nameError');
   const popup = document.getElementById('thankyouPopup');
+  const submitBtn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', function(e){
     let valid = true;
@@ -117,13 +124,21 @@ document.addEventListener('DOMContentLoaded', function() {
       return false;
     }
 
+    // Thay đổi nút đăng ký sang trạng thái loading
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Đang gửi...";
+
     // Hiển thị popup cảm ơn sau 0.5s
     setTimeout(() => {
       popup.classList.add('show');
       document.body.style.overflow = 'hidden';
+      submitBtn.disabled = false;
+      submitBtn.textContent = "🚀 Đăng ký ngay";
+      form.reset();
     }, 500);
   });
 
+  // Đóng popup khi click ra ngoài
   popup.addEventListener('click', function(e){
     if(e.target === this) closeThankYouPopup();
   });
