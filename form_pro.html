@@ -3,95 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng ký khách sỉ XO Việt Nam</title>
-<meta name="google-site-verification" content="PFUCVnOMioL8qdbvIyST48nxVGjil6wXcjzG-e8gZx0" />
+<title>Đăng Ký Đại Lý XO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: Arial, sans-serif; padding: 20px; background: #f8f9fa; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+  body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x:hidden; }
 
-  .form-box {
-    max-width: 420px; margin: auto; padding: 25px;
-    background: #fff; border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  /* Container chính */
+  .registration-section {
+    padding: 6vh 5vw;
+    display: flex;
+    justify-content: center;
+  }
+  .container { 
+    max-width: 500px; width: 100%; background: #fff; border-radius: 15px; padding: 5vh 5vw; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; 
   }
 
-  input {
-    width: 100%; padding: 14px; margin: 10px 0;
-    border: 1px solid #ddd; border-radius: 8px;
+  /* Header */
+  .registration-header h2 { font-size: 2rem; font-weight: 700; color:#111827; margin-bottom: 0.5rem; }
+  .registration-header p { font-size: 1rem; color:#374151; margin-bottom: 2rem; }
+
+  /* Form */
+  .registration-form-container { text-align:left; }
+  .form-group { margin-bottom: 1.5rem; position: relative; }
+  .form-group label { display:block; font-weight:600; margin-bottom:0.3rem; color:#111827; font-size:1rem; }
+  .form-control {
+    width:100%; padding:0.8rem 1rem; border-radius:8px; border:1px solid #d1d5db;
+    font-size:0.95rem; transition: all 0.3s;
+  }
+  .form-control:focus { border-color:#3b82f6; outline:none; box-shadow:0 0 0 2px rgba(59,130,246,0.2); }
+  .error-message {
+    color: #ef4444; font-size: 0.85rem; position: absolute; bottom: -18px; left:0; display:none;
   }
 
-  button {
-    width: 100%; padding: 14px; background: #28a745;
-    color: white; border: none; border-radius: 8px;
-    font-size: 18px; cursor: pointer; transition: .2s;
+  /* Button */
+  .btn-primary {
+    width:100%; padding:1rem; border:none; border-radius:10px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color:#fff; font-size:1rem; font-weight:600; cursor:pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  button:hover { background: #218838; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
 
-  /* Popup */
-  #popup {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: none; justify-content: center; align-items: center;
+  /* Popup cảm ơn */
+  .thankyou-popup {
+    position: fixed; top:0; left:0; width:100%; height:100%; display:flex;
+    align-items:center; justify-content:center; background: rgba(0,0,0,0.5);
+    opacity:0; pointer-events:none; transition: all 0.4s ease;
+    z-index:1000;
   }
-  .popup-box {
-    background: white; padding: 30px;
-    border-radius: 10px; text-align: center;
-    max-width: 300px;
+  .thankyou-popup.show { opacity:1; pointer-events:auto; }
+  .thankyou-popup-content {
+    background:#fff; border-radius:15px; padding:5vh 5vw;
+    max-width:400px; width:90%; text-align:center; position:relative;
+    animation: popupShow 0.5s ease-out;
+  }
+  @keyframes popupShow { 0%{transform: scale(0.7); opacity:0;} 100%{transform: scale(1); opacity:1;} }
+
+  .thankyou-close {
+    position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:2rem; cursor:pointer; color:#6b7280;
+  }
+
+  .thankyou-icon {
+    font-size:3rem; color:#10b981; margin-bottom:1rem; animation: iconBounce 1s infinite alternate;
+  }
+  @keyframes iconBounce { 0%{transform: translateY(0);} 100%{transform: translateY(-10px);} }
+
+  .thankyou-title { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; color:#111827; }
+  .thankyou-message { font-size:1rem; color:#4b5563; margin-bottom:1.5rem; }
+
+  .thankyou-zalo-btn {
+    display:flex; align-items:center; justify-content:center;
+    background:#06b6d4; color:#fff; text-decoration:none; padding:0.8rem 1rem; border-radius:10px; font-weight:600;
+    transition: background 0.3s; flex-wrap:wrap;
+  }
+  .thankyou-zalo-btn:hover { background:#0ea5e9; }
+  .thankyou-zalo-btn .zalo-icon { width:24px; height:24px; margin-right:0.5rem; }
+
+  /* Responsive */
+  @media(max-width:768px){
+    .registration-header h2 { font-size:1.7rem; }
+    .registration-header p { font-size:0.95rem; }
+    .btn-primary { font-size:0.95rem; padding:0.9rem; }
+    .thankyou-popup-content { padding:4vh 4vw; }
+  }
+  @media(max-width:480px){
+    .registration-header h2 { font-size:1.5rem; }
+    .registration-header p { font-size:0.9rem; }
+    .form-group label, .form-control, .btn-primary, .thankyou-title, .thankyou-message { font-size:0.9rem; }
   }
 </style>
 </head>
-
 <body>
 
-<div class="form-box">
-  <h2>Đăng ký nhận bảng giá sỉ</h2>
+<section id="registration-form" class="registration-section">
+  <div class="container">
+    <div class="registration-header">
+      <h2>ĐĂNG KÝ LÀM ĐẠI LÝ XO – NHẬN GIÁ SỈ NGAY</h2>
+      <p>Để lại thông tin, chúng tôi sẽ liên hệ tư vấn trong 5 phút</p>
+    </div>
 
-  <form id="xoForm">
-    <input type="text" id="ten" placeholder="Tên Khách Hàng" required>
-    <input type="tel" id="sdt" placeholder="Số điện thoại" required>
-    <button type="submit">Đăng ký ngay</button>
-  </form>
-</div>
+    <div class="registration-form-container">
+      <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/formResponse"
+        method="POST" target="hidden_iframe">
 
-<!-- POPUP -->
-<div id="popup">
-  <div class="popup-box">
-    <h3>Cảm ơn bạn!</h3>
-    <p>Chúng tôi sẽ liên hệ ngay để tư vấn.</p>
+        <div class="form-group">
+          <label>Số điện thoại</label>
+          <input type="tel" id="phone" name="entry.587844483" class="form-control" placeholder="Nhập số điện thoại của bạn" required>
+          <div class="error-message" id="phoneError">Vui lòng nhập số điện thoại!</div>
+        </div>
+
+        <div class="form-group">
+          <label>Tên khách hàng</label>
+          <input type="text" id="name" name="entry.1967686039" class="form-control" placeholder="Nhập tên của bạn" required>
+          <div class="error-message" id="nameError">Vui lòng nhập tên!</div>
+        </div>
+
+        <button type="submit" class="btn-primary">🚀 Đăng ký ngay</button>
+      </form>
+    </div>
+  </div>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
+
+<div id="thankyouPopup" class="thankyou-popup">
+  <div class="thankyou-popup-content">
+    <button class="thankyou-close" onclick="closeThankYouPopup()">×</button>
+    <div class="thankyou-icon">✓</div>
+    <h2 class="thankyou-title">Cảm ơn Anh/Chị!</h2>
+    <p class="thankyou-message">
+      Cảm ơn Anh/Chị đã quan tâm đến sản phẩm và dịch vụ của chúng tôi. Chúng tôi sẽ phục vụ Anh/Chị với dịch vụ, sản phẩm và giá sỉ ưu đãi tốt nhất!
+    </p>
+    <a href="https://zalo.me/3301356433470014208" target="_blank" class="thankyou-zalo-btn">
+      <img src="https://static.loveitopcdn.com/themes/base/images/icons/icon-zalo.svg" alt="Zalo" class="zalo-icon">
+      <span>Nhắn tin Zalo ngay để được tư vấn nhanh nhất và ưu đãi tốt nhất</span>
+    </a>
   </div>
 </div>
 
 <script>
-document.getElementById("xoForm").addEventListener("submit", function(e){
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('registrationForm');
+  const phoneInput = document.getElementById('phone');
+  const nameInput = document.getElementById('name');
+  const phoneError = document.getElementById('phoneError');
+  const nameError = document.getElementById('nameError');
+  const popup = document.getElementById('thankyouPopup');
 
-  let ten = document.getElementById("ten").value;
-  let sdt = document.getElementById("sdt").value;
+  form.addEventListener('submit', function(e){
+    let valid = true;
 
-  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/formResponse";
+    if(phoneInput.value.trim() === "") {
+      phoneError.style.display = "block";
+      valid = false;
+    } else {
+      phoneError.style.display = "none";
+    }
 
-  let data = new FormData();
+    if(nameInput.value.trim() === "") {
+      nameError.style.display = "block";
+      valid = false;
+    } else {
+      nameError.style.display = "none";
+    }
 
-  // --- 2 TRƯỜNG CHÍNH ---
-  data.append("entry.1449734233", ten); 
-  data.append("entry.1304547971", sdt);
+    if(!valid){
+      e.preventDefault(); // Ngăn form gửi nếu dữ liệu chưa hợp lệ
+      return false;
+    }
 
-  // --- TRƯỜNG REQUIRED KHÁC (bắt buộc phải có) ---
-  data.append("entry.2135963236", "Khách gửi từ landing page");
-  data.append("entry.1427665625", "5"); // scale 1-5 → bắt buộc gửi giá trị
-
-  fetch(FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: data
+    // Hiển thị popup cảm ơn sau 500ms
+    setTimeout(() => {
+      popup.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }, 500);
   });
 
-  document.getElementById("popup").style.display = "flex";
+  popup.addEventListener('click', function(e){
+    if(e.target === this) closeThankYouPopup();
+  });
 });
-</script>
 
+function closeThankYouPopup() {
+  const popup = document.getElementById('thankyouPopup');
+  popup.classList.remove('show');
+  document.body.style.overflow = '';
+}
+</script>
 
 </body>
 </html>
-
-
