@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Tối ưu tốc độ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>Đăng Ký Khách Hàng Mua Sỉ – Phụ Kiện XO Việt Nam</title>
+
+  <style>
+    /* ===== BASE RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      background: #ffffff;
+      color: #222;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== WRAPPER ===== */
+    .wrapper {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 30px;
+    }
+
+    /* ===== TITLE ===== */
+    .landing-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 700;
+      margin-top: 25px;
+      color: #222;
+      padding: 0 20px;
+      animation: fadeInDown 0.6s ease both;
+    }
+
+    .landing-sub {
+      text-align: center;
+      max-width: 800px;
+      margin: 15px auto;
+      line-height: 1.7;
+      font-size: 18px;
+      color: #444;
+      animation: fadeIn 0.8s ease both;
+      padding: 0 20px;
+    }
+
+    /* ===== FORM CONTAINER ===== */
+    .form-container {
+      width: 100%;
+      max-width: 900px;
+      height: calc(100vh - 260px);
+      margin-top: 10px;
+      animation: fadeInUp 0.7s ease both;
+    }
+
+    .form-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ===== THANK TEXT ===== */
+    .thank-text {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #c0392b;
+      text-align: center;
+      animation: fadeIn 1s ease both;
+      padding: 0 20px;
+    }
+
+    /* ===== ANIMATION ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .landing-title {
+        font-size: 22px;
+      }
+      .landing-sub {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .form-container {
+        height: calc(100vh - 220px);
+      }
+      .thank-text {
+        font-size: 16px;
+      }
+    }
+
+    /* ===== LARGE DESKTOP ===== */
+    @media (min-width: 1200px) {
+      .landing-title {
+        font-size: 30px;
+      }
+      .landing-sub {
+        font-size: 20px;
+      }
+      .thank-text {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="landing-title">Không cần đăng nhập Google</div>
+
+    <div class="landing-sub">
+      Chỉ cần số điện thoại – Chúng tôi sẽ tư vấn Anh/Chị những ưu đãi tốt nhất dành cho cửa hàng & đại lý sỉ phụ kiện XO chính hãng.
+    </div>
+
+    <div class="form-container">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/viewform?embedded=true">
+      </iframe>
+    </div>
+
+    <div class="thank-text">
+      Cảm ơn Anh/Chị! Vui lòng nhập thông tin để nhận bảng giá sỉ tốt nhất từ XO Việt Nam.
+    </div>
+  </div>
+
+  <script>
+    /* ========= SCRIPT GIỮ NGUYÊN LOGIC CỦA BẠN ========= */
+    function initFormLandingPage() {
+      const CONFIG = {
+        title: "Đăng Ký Khách Hàng Mua Sỉ – Phụ Kiện XO Việt Nam",
+        description: "Form đăng ký khách hàng mua sỉ phụ kiện XO chính hãng...",
+        keywords: "phụ kiện XO, mua sỉ phụ kiện, đại lý phụ kiện điện thoại..."
+      };
+
+      try {
+        document.title = CONFIG.title;
+
+        let metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+        metaDesc.name = "description";
+        metaDesc.content = CONFIG.description;
+        document.head.appendChild(metaDesc);
+
+        let metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
+        metaKeywords.name = "keywords";
+        metaKeywords.content = CONFIG.keywords;
+        document.head.appendChild(metaKeywords);
+      } catch (e) {
+        console.warn("Meta update error:", e);
+      }
+    }
+
+    window.addEventListener("load", initFormLandingPage);
+  </script>
+</body>
+</html>
