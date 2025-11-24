@@ -101,123 +101,168 @@ body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('registrationForm');
-  const phoneInput = document.getElementById('phone');
-  const nameInput = document.getElementById('name');
-  const phoneError = document.getElementById('phoneError');
-  const nameError = document.getElementById('nameError');
-  const popup = document.getElementById('thankyouPopup');
-  const submitBtn = document.getElementById('submitBtn');
-  const hiddenIframe = document.getElementById('hidden_iframe');
+(function() {
+  'use strict';
+  
+  // Đợi DOM load xong
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+    const phoneInput = document.getElementById('phone');
+    const nameInput = document.getElementById('name');
+    const phoneError = document.getElementById('phoneError');
+    const nameError = document.getElementById('nameError');
+    const popup = document.getElementById('thankyouPopup');
+    const submitBtn = document.getElementById('submitBtn');
+    const hiddenIframe = document.getElementById('hidden_iframe');
 
-  // Real-time validation
-  phoneInput.addEventListener('input', function() {
-    const value = this.value.trim();
-    if (value === '') {
-      this.classList.add('error');
-      phoneError.style.display = 'block';
-    } else {
-      this.classList.remove('error');
-      phoneError.style.display = 'none';
+    // Kiểm tra tất cả các element có tồn tại không
+    if (!form || !phoneInput || !nameInput || !phoneError || !nameError || !popup || !submitBtn) {
+      console.warn('Một số element không tồn tại trong DOM');
+      return;
     }
+
+    // Real-time validation cho số điện thoại
+    if (phoneInput && phoneError) {
+      phoneInput.addEventListener('input', function() {
+        const value = this.value.trim();
+        if (value === '') {
+          this.classList.add('error');
+          if (phoneError) phoneError.style.display = 'block';
+        } else {
+          this.classList.remove('error');
+          if (phoneError) phoneError.style.display = 'none';
+        }
+      });
+
+      phoneInput.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.classList.add('error');
+          if (phoneError) phoneError.style.display = 'block';
+        }
+      });
+    }
+
+    // Real-time validation cho tên
+    if (nameInput && nameError) {
+      nameInput.addEventListener('input', function() {
+        const value = this.value.trim();
+        if (value === '') {
+          this.classList.add('error');
+          if (nameError) nameError.style.display = 'block';
+        } else {
+          this.classList.remove('error');
+          if (nameError) nameError.style.display = 'none';
+        }
+      });
+
+      nameInput.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.classList.add('error');
+          if (nameError) nameError.style.display = 'block';
+        }
+      });
+    }
+
+    // Form submit handler
+    if (form) {
+      form.addEventListener('submit', function(e){
+        let valid = true;
+
+        // Validate phone
+        if (phoneInput && phoneError) {
+          if(phoneInput.value.trim() === "") {
+            phoneInput.classList.add('error');
+            phoneError.style.display = "block";
+            phoneInput.focus();
+            valid = false;
+          } else {
+            phoneInput.classList.remove('error');
+            phoneError.style.display = "none";
+          }
+        }
+
+        // Validate name
+        if (nameInput && nameError) {
+          if(nameInput.value.trim() === "") {
+            nameInput.classList.add('error');
+            nameError.style.display = "block";
+            if(valid && nameInput) nameInput.focus();
+            valid = false;
+          } else {
+            nameInput.classList.remove('error');
+            nameError.style.display = "none";
+          }
+        }
+
+        if(!valid){
+          e.preventDefault();
+          return false;
+        }
+
+        // Disable button và hiển thị loading
+        if (submitBtn) {
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Đang gửi...';
+        }
+
+        // Form sẽ submit vào iframe ẩn (không chuyển trang)
+        // Sau khi submit, hiển thị popup cảm ơn
+        setTimeout(() => {
+          // Reset form
+          if (form) form.reset();
+          
+          if (submitBtn) {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '🚀 Đăng ký ngay';
+          }
+          
+          // Hiển thị popup cảm ơn với animation mượt mà
+          if (popup) {
+            popup.classList.add('show');
+            if (document.body) {
+              document.body.style.overflow = 'hidden';
+            }
+          }
+        }, 600);
+      });
+    }
+
+    // Đóng popup khi click ra ngoài
+    if (popup) {
+      popup.addEventListener('click', function(e){
+        if(e.target === this) {
+          closeThankYouPopup();
+        }
+      });
+    }
+
+    // Đóng popup bằng phím ESC
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape') {
+        const popup = document.getElementById('thankyouPopup');
+        if (popup && popup.classList.contains('show')) {
+          closeThankYouPopup();
+        }
+      }
+    });
   });
 
-  nameInput.addEventListener('input', function() {
-    const value = this.value.trim();
-    if (value === '') {
-      this.classList.add('error');
-      nameError.style.display = 'block';
-    } else {
-      this.classList.remove('error');
-      nameError.style.display = 'none';
+  // Function đóng popup
+  function closeThankYouPopup() {
+    const popup = document.getElementById('thankyouPopup');
+    if (popup) {
+      popup.classList.remove('show');
+      if (document.body) {
+        document.body.style.overflow = '';
+      }
     }
-  });
+  }
 
-  // Blur validation
-  phoneInput.addEventListener('blur', function() {
-    if (this.value.trim() === '') {
-      this.classList.add('error');
-      phoneError.style.display = 'block';
-    }
-  });
-
-  nameInput.addEventListener('blur', function() {
-    if (this.value.trim() === '') {
-      this.classList.add('error');
-      nameError.style.display = 'block';
-    }
-  });
-
-  // Form submit
-  form.addEventListener('submit', function(e){
-    let valid = true;
-
-    // Validate phone
-    if(phoneInput.value.trim() === "") {
-      phoneInput.classList.add('error');
-      phoneError.style.display = "block";
-      phoneInput.focus();
-      valid = false;
-    } else {
-      phoneInput.classList.remove('error');
-      phoneError.style.display = "none";
-    }
-
-    // Validate name
-    if(nameInput.value.trim() === "") {
-      nameInput.classList.add('error');
-      nameError.style.display = "block";
-      if(valid) nameInput.focus();
-      valid = false;
-    } else {
-      nameInput.classList.remove('error');
-      nameError.style.display = "none";
-    }
-
-    if(!valid){
-      e.preventDefault();
-      return false;
-    }
-
-    // Disable button và hiển thị loading
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Đang gửi...';
-
-    // Form sẽ submit vào iframe ẩn (không chuyển trang)
-    // Sau khi submit, hiển thị popup cảm ơn
-    setTimeout(() => {
-      // Reset form
-      form.reset();
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '🚀 Đăng ký ngay';
-      
-      // Hiển thị popup cảm ơn với animation mượt mà
-      popup.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }, 600);
-  });
-
-  // Đóng popup khi click ra ngoài
-  popup.addEventListener('click', function(e){
-    if(e.target === this) closeThankYouPopup();
-  });
-
-  // Đóng popup bằng phím ESC
-  document.addEventListener('keydown', function(e) {
-    if(e.key === 'Escape' && popup.classList.contains('show')) {
-      closeThankYouPopup();
-    }
-  });
-});
-
-function closeThankYouPopup() {
-  const popup = document.getElementById('thankyouPopup');
-  popup.classList.remove('show');
-  document.body.style.overflow = '';
-}
+  // Export function để có thể gọi từ onclick
+  window.closeThankYouPopup = closeThankYouPopup;
+})();
 </script>
 
 </body>
