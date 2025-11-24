@@ -7,93 +7,35 @@
 <title>Đăng Ký Đại Lý XO</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-  body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x:hidden; }
-
-  /* Container chính */
-  .registration-section {
-    padding: 6vh 5vw;
-    display: flex;
-    justify-content: center;
-  }
-  .container { 
-    max-width: 500px; width: 100%; background: #fff; border-radius: 15px; padding: 5vh 5vw; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; 
-  }
-
-  /* Header */
-  .registration-header h2 { font-size: 2rem; font-weight: 700; color:#111827; margin-bottom: 0.5rem; }
-  .registration-header p { font-size: 1rem; color:#374151; margin-bottom: 2rem; }
-
-  /* Form */
-  .registration-form-container { text-align:left; }
-  .form-group { margin-bottom: 1.5rem; position: relative; }
-  .form-group label { display:block; font-weight:600; margin-bottom:0.3rem; color:#111827; font-size:1rem; }
-  .form-control {
-    width:100%; padding:0.8rem 1rem; border-radius:8px; border:1px solid #d1d5db;
-    font-size:0.95rem; transition: all 0.3s;
-  }
-  .form-control:focus { border-color:#3b82f6; outline:none; box-shadow:0 0 0 2px rgba(59,130,246,0.2); }
-  .error-message {
-    color: #ef4444; font-size: 0.85rem; position: absolute; bottom: -18px; left:0; display:none;
-  }
-
-  /* Button */
-  .btn-primary {
-    width:100%; padding:1rem; border:none; border-radius:10px;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
-    color:#fff; font-size:1rem; font-weight:600; cursor:pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
-
-  /* Popup cảm ơn */
-  .thankyou-popup {
-    position: fixed; top:0; left:0; width:100%; height:100%; display:flex;
-    align-items:center; justify-content:center; background: rgba(0,0,0,0.5);
-    opacity:0; pointer-events:none; transition: all 0.4s ease;
-    z-index:1000;
-  }
-  .thankyou-popup.show { opacity:1; pointer-events:auto; }
-  .thankyou-popup-content {
-    background:#fff; border-radius:15px; padding:5vh 5vw;
-    max-width:400px; width:90%; text-align:center; position:relative;
-    animation: popupShow 0.5s ease-out;
-  }
-  @keyframes popupShow { 0%{transform: scale(0.7); opacity:0;} 100%{transform: scale(1); opacity:1;} }
-
-  .thankyou-close {
-    position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:2rem; cursor:pointer; color:#6b7280;
-  }
-
-  .thankyou-icon {
-    font-size:3rem; color:#10b981; margin-bottom:1rem; animation: iconBounce 1s infinite alternate;
-  }
-  @keyframes iconBounce { 0%{transform: translateY(0);} 100%{transform: translateY(-10px);} }
-
-  .thankyou-title { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; color:#111827; }
-  .thankyou-message { font-size:1rem; color:#4b5563; margin-bottom:1.5rem; }
-
-  .thankyou-zalo-btn {
-    display:flex; align-items:center; justify-content:center;
-    background:#06b6d4; color:#fff; text-decoration:none; padding:0.8rem 1rem; border-radius:10px; font-weight:600;
-    transition: background 0.3s; flex-wrap:wrap;
-  }
-  .thankyou-zalo-btn:hover { background:#0ea5e9; }
-  .thankyou-zalo-btn .zalo-icon { width:24px; height:24px; margin-right:0.5rem; }
-
-  /* Responsive */
-  @media(max-width:768px){
-    .registration-header h2 { font-size:1.7rem; }
-    .registration-header p { font-size:0.95rem; }
-    .btn-primary { font-size:0.95rem; padding:0.9rem; }
-    .thankyou-popup-content { padding:4vh 4vw; }
-  }
-  @media(max-width:480px){
-    .registration-header h2 { font-size:1.5rem; }
-    .registration-header p { font-size:0.9rem; }
-    .form-group label, .form-control, .btn-primary, .thankyou-title, .thankyou-message { font-size:0.9rem; }
-  }
+/* --- Các style giống như phiên bản trước, giữ nguyên --- */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow-x:hidden; }
+.registration-section { padding: 6vh 5vw; display: flex; justify-content: center; }
+.container { max-width: 500px; width: 100%; background: #fff; border-radius: 15px; padding: 5vh 5vw; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
+.registration-header h2 { font-size: 2rem; font-weight: 700; color:#111827; margin-bottom: 0.5rem; }
+.registration-header p { font-size: 1rem; color:#374151; margin-bottom: 2rem; }
+.registration-form-container { text-align:left; }
+.form-group { margin-bottom: 1.5rem; position: relative; }
+.form-group label { display:block; font-weight:600; margin-bottom:0.3rem; color:#111827; font-size:1rem; }
+.form-control { width:100%; padding:0.8rem 1rem; border-radius:8px; border:1px solid #d1d5db; font-size:0.95rem; transition: all 0.3s; }
+.form-control:focus { border-color:#3b82f6; outline:none; box-shadow:0 0 0 2px rgba(59,130,246,0.2); }
+.error-message { color: #ef4444; font-size: 0.85rem; position: absolute; bottom: -18px; left:0; display:none; }
+.btn-primary { width:100%; padding:1rem; border:none; border-radius:10px; background: linear-gradient(90deg, #3b82f6, #06b6d4); color:#fff; font-size:1rem; font-weight:600; cursor:pointer; transition: transform 0.2s, box-shadow 0.2s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+.thankyou-popup { position: fixed; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.5); opacity:0; pointer-events:none; transition: all 0.4s ease; z-index:1000; }
+.thankyou-popup.show { opacity:1; pointer-events:auto; }
+.thankyou-popup-content { background:#fff; border-radius:15px; padding:5vh 5vw; max-width:400px; width:90%; text-align:center; position:relative; animation: popupShow 0.5s ease-out; }
+@keyframes popupShow { 0%{transform: scale(0.7); opacity:0;} 100%{transform: scale(1); opacity:1;} }
+.thankyou-close { position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:2rem; cursor:pointer; color:#6b7280; }
+.thankyou-icon { font-size:3rem; color:#10b981; margin-bottom:1rem; animation: iconBounce 1s infinite alternate; }
+@keyframes iconBounce { 0%{transform: translateY(0);} 100%{transform: translateY(-10px);} }
+.thankyou-title { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; color:#111827; }
+.thankyou-message { font-size:1rem; color:#4b5563; margin-bottom:1.5rem; }
+.thankyou-zalo-btn { display:flex; align-items:center; justify-content:center; background:#06b6d4; color:#fff; text-decoration:none; padding:0.8rem 1rem; border-radius:10px; font-weight:600; transition: background 0.3s; flex-wrap:wrap; }
+.thankyou-zalo-btn:hover { background:#0ea5e9; }
+.thankyou-zalo-btn .zalo-icon { width:24px; height:24px; margin-right:0.5rem; }
+@media(max-width:768px){ .registration-header h2 { font-size:1.7rem; } .registration-header p { font-size:0.95rem; } .btn-primary { font-size:0.95rem; padding:0.9rem; } .thankyou-popup-content { padding:4vh 4vw; } }
+@media(max-width:480px){ .registration-header h2 { font-size:1.5rem; } .registration-header p { font-size:0.9rem; } .form-group label, .form-control, .btn-primary, .thankyou-title, .thankyou-message { font-size:0.9rem; } }
 </style>
 </head>
 <body>
@@ -126,7 +68,7 @@
     </div>
   </div>
 
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 </section>
 
 <div id="thankyouPopup" class="thankyou-popup">
@@ -152,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const phoneError = document.getElementById('phoneError');
   const nameError = document.getElementById('nameError');
   const popup = document.getElementById('thankyouPopup');
+  const iframe = document.getElementById('hidden_iframe');
 
   form.addEventListener('submit', function(e){
     let valid = true;
@@ -171,15 +114,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if(!valid){
-      e.preventDefault(); // Ngăn form gửi nếu dữ liệu chưa hợp lệ
+      e.preventDefault(); 
       return false;
     }
 
-    // Hiển thị popup cảm ơn sau 500ms
-    setTimeout(() => {
+    // Sau khi submit thành công Google Forms, iframe sẽ load
+    iframe.onload = function() {
       popup.classList.add('show');
       document.body.style.overflow = 'hidden';
-    }, 500);
+    };
   });
 
   popup.addEventListener('click', function(e){
@@ -196,4 +139,3 @@ function closeThankYouPopup() {
 
 </body>
 </html>
-
