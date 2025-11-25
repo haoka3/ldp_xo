@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
      <meta name="google-site-verification" content="PFUCVnOMioL8qdbvIyST48nxVGjil6wXcjzG-e8gZx0" />
+
   <!-- Tối ưu tốc độ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,22 +12,14 @@
   <title>Đăng Ký Khách Hàng Mua Sỉ – Phụ Kiện XO Việt Nam</title>
 
   <style>
-    /* ===== BASE RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Arial", sans-serif;
       background: #ffffff;
       color: #222;
       scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== WRAPPER ===== */
     .wrapper {
       width: 100%;
       min-height: 100vh;
@@ -36,35 +29,28 @@
       padding-bottom: 30px;
     }
 
-    /* ===== TITLE ===== */
     .landing-title {
       text-align: center;
       font-size: 26px;
       font-weight: 700;
       margin-top: 25px;
-      color: #222;
       padding: 0 20px;
-      animation: fadeInDown 0.6s ease both;
     }
 
     .landing-sub {
       text-align: center;
       max-width: 800px;
       margin: 15px auto;
-      line-height: 1.7;
       font-size: 18px;
-      color: #444;
-      animation: fadeIn 0.8s ease both;
       padding: 0 20px;
+      line-height: 1.7;
     }
 
-    /* ===== FORM CONTAINER ===== */
     .form-container {
       width: 100%;
       max-width: 900px;
       height: calc(100vh - 260px);
       margin-top: 10px;
-      animation: fadeInUp 0.7s ease both;
     }
 
     .form-container iframe {
@@ -76,61 +62,37 @@
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     }
 
-    /* ===== THANK TEXT ===== */
+    /* ===== LINK DỰ PHÒNG ===== */
+    .fallback-box {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 16px;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+
+    .fallback-box a {
+      color: #d63031;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .fallback-box a:hover { text-decoration: underline; }
+
     .thank-text {
       margin-top: 20px;
       font-size: 18px;
       font-weight: 600;
       color: #c0392b;
       text-align: center;
-      animation: fadeIn 1s ease both;
       padding: 0 20px;
     }
 
-    /* ===== ANIMATION ===== */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .landing-title {
-        font-size: 22px;
-      }
-      .landing-sub {
-        font-size: 16px;
-        line-height: 1.55;
-      }
-      .form-container {
-        height: calc(100vh - 220px);
-      }
-      .thank-text {
-        font-size: 16px;
-      }
-    }
-
-    /* ===== LARGE DESKTOP ===== */
-    @media (min-width: 1200px) {
-      .landing-title {
-        font-size: 30px;
-      }
-      .landing-sub {
-        font-size: 20px;
-      }
-      .thank-text {
-        font-size: 20px;
-      }
+      .landing-title { font-size: 22px; }
+      .landing-sub { font-size: 16px; }
+      .thank-text { font-size: 16px; }
+      .form-container { height: calc(100vh - 220px); }
     }
   </style>
 </head>
@@ -149,13 +111,24 @@
       </iframe>
     </div>
 
+    <!-- ⭐⭐⭐ Thêm dòng LINK DỰ PHÒNG tại đây ⭐⭐⭐ -->
+    <div class="fallback-box">
+      <b>Nếu form không tải được, vui lòng dùng link dự phòng:</b><br>
+      👉 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsRSfVfF2rLYQ6v5RdH1fJeUWOfonHbpQC8N1UYt2EfKy-uQ/viewform?usp=dialog" target="_blank">
+        Link đăng ký dự phòng
+      </a><br><br>
+
+      📞 Hotline: <a href="tel:0932114128">0932 114 128</a> <br>
+      💬 Zalo: <a target="_blank" href="https://zalo.me/0932114128">https://zalo.me/0932114128</a>
+    </div>
+    <!-- ⭐⭐⭐ KẾT THÚC phần thêm ⭐⭐⭐ -->
+
     <div class="thank-text">
       Cảm ơn Anh/Chị! Vui lòng nhập thông tin để nhận bảng giá sỉ tốt nhất từ XO Việt Nam.
     </div>
   </div>
 
   <script>
-    /* ========= SCRIPT GIỮ NGUYÊN LOGIC CỦA BẠN ========= */
     function initFormLandingPage() {
       const CONFIG = {
         title: "Đăng Ký Khách Hàng Mua Sỉ – Phụ Kiện XO Việt Nam",
@@ -175,11 +148,8 @@
         metaKeywords.name = "keywords";
         metaKeywords.content = CONFIG.keywords;
         document.head.appendChild(metaKeywords);
-      } catch (e) {
-        console.warn("Meta update error:", e);
-      }
+      } catch (e) {}
     }
-
     window.addEventListener("load", initFormLandingPage);
   </script>
 </body>
