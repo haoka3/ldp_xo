@@ -2766,6 +2766,92 @@
 }
 
 
+
+
+
+
+
+
+.pg-section {
+    padding: 30px 15px;
+    background: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
+
+.pg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.pg-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+.pg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.pg-img {
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+    background-color: #eaeaea;
+}
+
+.pg-info {
+    padding: 15px;
+}
+
+.pg-info h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.pg-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.pg-price {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e53935;
+}
+
+/* Nút đăng ký */
+.pg-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #ff3d00, #ff6f00);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+.pg-btn:hover {
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
     </style>
 </head>
 
@@ -3550,6 +3636,106 @@ setInterval(changeBackground, 5000);
   border: none;
 }
 </style>
+<!--------bang san pham -->
+
+<section class="pg-section">
+  <h2 style="text-align:center; margin-bottom:20px;">Bảng Giá & Chi Tiết Sản Phẩm XO</h2>
+
+  <div class="pg-grid">
+
+      <!-- NB230 -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://media.loveitopcdn.com/40953/thumb/600x600/cap-sac-dien-thoai-xo-nb230.jpg?zc=1');"></div>
+          <div class="pg-info">
+              <h3>NB230</h3>
+              <p>Dây Sạc XO NB230</p>
+              <div class="pg-price">Từ 9,000đ</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+      <!-- NB280 -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://media.loveitopcdn.com/40953/thumb/700x700/23.jpg?zc=1');"></div>
+          <div class="pg-info">
+              <h3>NB280</h3>
+              <p>Dây Sạc XO NB280</p>
+              <div class="pg-price">Từ 9,000đ</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+      <!-- NB238 -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://media.loveitopcdn.com/40953/thumb/sac-dien-thoai-xo-nb238.jpg');"></div>
+          <div class="pg-info">
+              <h3>NB238</h3>
+              <p>Dây Sạc Silicone XO NB238</p>
+              <div class="pg-price">Từ 12,000đ</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+      <!-- NB235 -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://media.loveitopcdn.com/40953/thumb/600x600/day-cap-sac-nhanh-xo-nb235.jpg?zc=1');"></div>
+          <div class="pg-info">
+              <h3>NB235</h3>
+              <p>Dây Sạc XO NB235</p>
+              <div class="pg-price">Từ 12,000đ</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+      <!-- XO Y1 -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://media.loveitopcdn.com/40953/thumb/600x600/134011-14.jpg?zc=1');"></div>
+          <div class="pg-info">
+              <h3>XO Y1</h3>
+              <p>Đèn Sử Dụng Trong Cuộc Sống XO Y1</p>
+              <div class="pg-price">15,000đ</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+      <!-- Sản phẩm không có hình -->
+      <div class="pg-card">
+          <div class="pg-img" style="background-image:url('https://cdn-icons-png.flaticon.com/512/679/679922.png');"></div>
+          <div class="pg-info">
+              <h3>Sản phẩm khác</h3>
+              <p>Xem trong bảng giá đầy đủ</p>
+              <div class="pg-price">Giá sỉ tốt nhất</div>
+
+              <button class="pg-btn"
+                  onclick="document.getElementById('registration-form').scrollIntoView({behavior:'smooth'})">
+                  Đăng ký ngay
+              </button>
+          </div>
+      </div>
+
+  </div>
+</section>
+
 
 
   <!-- Section chính sách sỉ XO Việt Nam-->
