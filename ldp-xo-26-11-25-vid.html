@@ -2206,6 +2206,22 @@
     border: none;
 }
 
+
+/*---- không hiển thị trên điện thoại---*/
+        @media (max-width: 768px) {
+    .popup-wrapper,
+    .popup-content,
+    .form-wrapper iframe {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
+        
 /* ===== CSS FORM ĐĂNG KÝ MỚI ===== */
 .registration-section {
   background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
@@ -4363,6 +4379,7 @@ setInterval(changeBackground, 5000);
 
 </body>
 </html>
+
 
 
 
