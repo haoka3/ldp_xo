@@ -4029,77 +4029,47 @@ setInterval(changeBackground, 5000);
   <script>
     // Xử lý submit form
     document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('registrationForm');
-      const phoneInput = form.querySelector('input[name="entry.587844483"]');
-      const errorMessage = form.querySelector('.error-message');
-      
-      if (form) {
-        // Validation khi người dùng nhập
-        if (phoneInput) {
-          phoneInput.addEventListener('input', function() {
-            const phoneValue = this.value.trim();
-            if (phoneValue === '') {
-              this.setCustomValidity('Vui lòng nhập số điện thoại của bạn');
-              errorMessage.style.display = 'block';
-              this.classList.add('error');
-            } else if (!this.validity.valid) {
-              this.setCustomValidity('Số điện thoại không hợp lệ. Vui lòng nhập 10 số, bắt đầu bằng 0');
-              errorMessage.style.display = 'block';
-              this.classList.add('error');
-            } else {
-              this.setCustomValidity('');
-              errorMessage.style.display = 'none';
-              this.classList.remove('error');
-            }
-          });
-          
-          phoneInput.addEventListener('blur', function() {
-            const phoneValue = this.value.trim();
-            if (phoneValue === '') {
-              this.setCustomValidity('Vui lòng nhập số điện thoại của bạn');
-              errorMessage.style.display = 'block';
-              this.classList.add('error');
-            }
-          });
-        }
-        
-        form.addEventListener('submit', function(e) {
-          const phoneValue = phoneInput.value.trim();
-          
-          // Kiểm tra số điện thoại không được để trống
-          if (phoneValue === '') {
-            e.preventDefault();
-            phoneInput.focus();
-            phoneInput.setCustomValidity('Vui lòng nhập số điện thoại của bạn');
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Vui lòng nhập số điện thoại của bạn';
-            phoneInput.classList.add('error');
-            return false;
-          }
-          
-          // Kiểm tra format số điện thoại
-          if (!phoneInput.validity.valid) {
-            e.preventDefault();
-            phoneInput.focus();
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Số điện thoại không hợp lệ. Vui lòng nhập 10 số, bắt đầu bằng 0';
-            phoneInput.classList.add('error');
-            return false;
-          }
-          
-          // Nếu hợp lệ, cho phép submit
-          phoneInput.setCustomValidity('');
-          errorMessage.style.display = 'none';
-          phoneInput.classList.remove('error');
-          
-          // Hiển thị popup cảm ơn sau 500ms
-          setTimeout(function() {
-            showThankYouPopup();
-          }, 500);
-        });
-      }
+  const form = document.getElementById('registrationForm');
+  const phoneInput = form.querySelector('input[name="entry.587844483"]');
+  const errorMessage = form.querySelector('.error-message');
+
+  if (form) {
+
+    // Khi người dùng nhập → chỉ ẩn báo lỗi
+    phoneInput.addEventListener('input', function() {
+      this.setCustomValidity('');
+      errorMessage.style.display = 'none';
+      this.classList.remove('error');
     });
 
+    // Khi submit form
+    form.addEventListener('submit', function(e) {
+      const phoneValue = phoneInput.value.trim();
+
+      // Chỉ kiểm tra không được để trống
+      if (phoneValue === '') {
+        e.preventDefault();
+        phoneInput.focus();
+        phoneInput.setCustomValidity('Vui lòng nhập số điện thoại của bạn');
+        errorMessage.textContent = 'Vui lòng nhập số điện thoại của bạn';
+        errorMessage.style.display = 'block';
+        phoneInput.classList.add('error');
+        return false;
+      }
+
+      // Hợp lệ → không báo lỗi
+      phoneInput.setCustomValidity('');
+      errorMessage.style.display = 'none';
+      phoneInput.classList.remove('error');
+
+      // Hiển thị popup cảm ơn
+      setTimeout(function() {
+        showThankYouPopup();
+      }, 500);
+    });
+  }
+});
+      
     // Hiển thị popup cảm ơn
     function showThankYouPopup() {
       const popup = document.getElementById('thankyouPopup');
@@ -4378,6 +4348,7 @@ setInterval(changeBackground, 5000);
 
 </body>
 </html>
+
 
 
 
